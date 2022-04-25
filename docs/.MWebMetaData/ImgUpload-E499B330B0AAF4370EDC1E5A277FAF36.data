@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>2201E9000D3EC95BD4CB014CBE0BEEDE</key>
+	<array>
+		<dict>
+			<key>localURL</key>
+			<string>media/qbeenslee.homepage.png</string>
+			<key>remoteURL</key>
+			<string>https://qbeenslee-1259354687.cos.ap-shanghai.myqcloud.com/2022/04/qbeensleehomepage.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/qbeenslee-article.png</string>
+			<key>remoteURL</key>
+			<string>https://qbeenslee-1259354687.cos.ap-shanghai.myqcloud.com/2022/04/qbeensleearticle.png</string>
+		</dict>
+	</array>
+	<key>selectedItem</key>
+	<string>2201E9000D3EC95BD4CB014CBE0BEEDE</string>
+</dict>
+</plist>
