@@ -3,7 +3,7 @@
     - [快速搭建](quick-start.md)
     - [更新](changlog.md)
 - 定制化
-    - [黑暗模式(DarkMode)](customize/DarkMode.md)
+    - [黑暗模式(DarkMode)](customize/darkmode.md)
     - [Banner](customize/banner.md)
     - [菜单栏](customize/menu.md)
     - [搜索](customize/search.md)
