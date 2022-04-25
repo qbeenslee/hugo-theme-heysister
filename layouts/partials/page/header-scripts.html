@@ -1,0 +1,15 @@
+{{- $finalContent := (.Scratch.Get "content-text") -}}
+
+<!-- darkmode -->
+    <script src="{{ .Site.Data.hey.cdn.js.darkmode | absURL }}" type="text/javascript"></script>
+
+<!-- jquery -->
+<script src="{{.Site.Data.hey.cdn.js.jquery | absURL}}" type="text/javascript"></script>
+<script src="{{.Site.Data.hey.cdn.js.jquery_lazyload | absURL}}" type="text/javascript"></script>
+
+<!-- leafle -->
+{{- if in $finalContent "map-box" -}}
+    <script type="text/javascript" src="{{ .Site.Data.hey.cdn.js.leafle | absURL }}"></script>
+    <link rel="stylesheet" href="{{ .Site.Data.hey.cdn.css.leafle | absURL }}"/>
+{{- end -}}
+

@@ -1,0 +1,25 @@
+{{ define "main" }}
+    {{- $modes := split "light/dark/black" "/" -}}
+    {{- $mode := partial "variable/dataMode" . -}}
+    {{- $setMode :=  and (ne $mode "") (in $modes $mode) -}}
+    <div class="horizontal-safe {{ if .Params.banner }}vertical-safe-covered{{ else }}vertical-safe{{ end  }}">
+        <div class="page-wrapper">
+            <div class="middle-side">
+                <article>
+                    {{ partial "page/article-header" . }}
+                    <div class="content" id="content"{{if $setMode }} data-mode="{{ $mode }}"{{ end }}>
+                        {{ .Scratch.Get "content" }}
+                        {{ partial "page/article-copyright" . }}
+                    </div>
+                    {{ partial "plugins/related" . }}
+                </article>
+            </div>
+            {{ partial "plugins/toc" . }}
+        </div>
+        {{ partial "plugins/comment" . }}
+    </div>
+{{ end }}
+
+{{ define "main-tag" }}class="{{ partial "variable/pageType" . }}" id="save-article-as-img"{{ end }}
+
+{{ define "body-tag"}}style="background-color:{{ if .Params.bodyColor }}{{.Params.bodyColor | safeCSS}}{{ else if .Params.banner }}#F2F2F2{{ else }}white{{ end }};" {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}data-spy="scroll" data-target="#content-toc-tree" data-offset="90"{{ end }}{{ end }}

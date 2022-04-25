@@ -1,0 +1,75 @@
+.friends > .friend {
+    float: left;
+    position: relative;
+    transition: all 0.3s ease-out;
+    list-style: none;
+    margin-top: 1rem !important;
+    width: 33.3%;
+
+    &:hover {
+        background: $color_mercury_50_approx;
+        border-radius: 2px;
+        transition: all 0.5s ease-in;
+    }
+
+    a {
+        display: block;
+        padding: 0 0.5rem 0 5.625rem;
+        height: 5.625rem;
+        color: $color_fuscous_gray_approx;
+
+        .friend-logo {
+            width: 60px;
+            height: 60px;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 50% !important;
+            position: absolute;
+            top: 0.9375rem;
+            left: 0.9375rem;
+            cursor: pointer;
+            margin: 0;
+            line-height: normal !important;
+        }
+
+        .friend-name {
+            cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin: 0 !important;
+            padding-top: 1.25rem;
+            font-size: 1rem !important;
+            font-weight: bold !important;
+            color: var(--text-secondary);
+        }
+
+        .friend-slogan {
+            cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin: 0.625rem 0 !important;
+            line-height: 1.5rem !important;
+            font-size: 0.7rem !important;
+            color: var(--text-suammary);
+        }
+    }
+}
+
+@media screen and (min-width: $size_medium_min) {
+    .friends > .friend {
+        width: 33.3%;
+    }
+}
+
+@media screen and (min-width: $size_small_min) and (max-width: $size_medium_max) {
+    .friends > .friend {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: $size_small_max) {
+    .friends > .friend {
+        width: 100%;
+    }
+}

@@ -1,0 +1,79 @@
+# article
+- id: prev
+  translation: 上一页
+
+- id: next
+  translation: 下一页
+
+- id: article-author
+  translation: 文章作者
+
+- id: article-copyright-license
+  translation: 版权声明
+
+- id: four0four-return-homepage
+  translation: 返回主页
+
+- id: read-more
+  translation: 查看更多
+
+- id: title-404
+  translation: 找不到相关页面
+
+- id: title-tag
+  translation: 标签
+
+- id: title-categories
+  translation: 分类
+
+- id: minute-read
+  translation: " 分钟阅读"
+
+#Format
+- id: article-date-simple-format
+  translation: 2006年1月2日 15:04
+
+- id: article-date-format
+  translation: 本文创作于2006年1月2日 15:04
+
+- id: index-date-format
+  translation: 2006年1月2日
+
+- id: index-month-day-format
+  translation: 1月02日
+
+#Plugins
+- id: valine-input-placeholder
+  translation: 随便说点啥~~
+
+- id: livere-noscript
+  translation: 为正常使用评论功能请激活JavaScript
+
+- id: archives-counter-format
+  zero: "当前未创建文章"
+  other: "太棒了! 目前共计 <strong>{{.Count}}</strong> 篇文章, 继续努力."
+
+
+- id: tag
+  translation: 标签
+
+- id: category
+  translation: 类目
+
+- id: archive
+  translation: 归档
+
+- id: tags-cloud
+  translation: 标签
+
+- id: search
+  translation: 搜索
+
+- id: darkmode
+  translation: 夜晚模式
+
+- id: capture
+  translation: 保存页面为图片
+
+- id: seeAlso
+  translation: 关联阅读

@@ -1,0 +1,13 @@
+{{- if eq .Kind "section" -}}
+    {{ printf "index section-index %s" .Section }}
+{{- else if eq .Kind "taxonomy" -}}
+    {{ printf "taxonomy %s" .Section }}
+{{- else if eq .Kind "home" -}}
+    {{ printf "index home-index" }}
+{{- else if eq .Kind "term" -}}
+    {{ printf "index term-index" }}
+{{- else if eq .Kind "404" -}}
+    {{ printf "page 404" }}
+{{- else -}}
+    {{ .Kind }}
+{{- end -}}

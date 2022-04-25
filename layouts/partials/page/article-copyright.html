@@ -1,0 +1,16 @@
+{{- if .Params.original -}}
+    <div class="article-copyright">
+        {{- if .Params.original -}}
+            {{- if .Params.author -}}
+                <p>{{T "article-author"}}: <a href="{{ .Permalink }}"><i>{{ partial "variable/author" . }}</i></a></p>
+            {{- end -}}
+            {{- if .Site.Params.layout.copyrightURL -}}
+                <a href="{{ .Site.Params.layout.copyrightURL }}">
+                    <img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ .Site.Data.hey.cdn.img.cc_by_nc_nd | absURL}}" height="20px" width="93px" class="nozoom" alt="CC BY-NC 4.0" title="CC BY-NC 4.0">
+                </a>
+            {{- else -}}
+                <img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ .Site.Data.hey.cdn.img.cc_by_nc_nd | absURL}}" height="20px" width="93px" class="nozoom" alt="CC BY-NC 4.0" title="CC BY-NC 4.0">
+            {{- end -}}
+        {{- end -}}
+    </div>
+{{- end -}}

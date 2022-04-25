@@ -1,0 +1,20 @@
+.content {
+    @import "content/base";
+    @import "content/p";
+    @import "content/list";
+    @import "content/h";
+    @import "content/table";
+    @import "content/code";
+    @import "content/footnote";
+    @import "content/img";
+    @import "content/copyright";
+    @import "content/blockquote";
+    @import "content/button";
+    @import "content/syntax";
+}
+
+#content {
+    color: var(--text-content);
+    transition: color 1s ease;
+    margin: 2rem 0 2.25rem 0;
+}

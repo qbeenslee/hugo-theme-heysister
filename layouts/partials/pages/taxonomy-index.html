@@ -1,0 +1,11 @@
+{{- $pages := (.Paginator 50).Pages | intersect (where .Pages "Params.hidden" "ne" true) -}}
+{{- $paginator := .Paginate $pages -}}
+{{- $shouldUppercase := partial "variable/shouldUppercase" . -}}
+{{ range $pages }}
+    <article>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="time">{{.Date.Format  (T "index-date-format")}}</time>
+        <span class="article-title">
+            <a href="{{ .RelPermalink }}" class="link">{{ cond (eq $shouldUppercase "true") (.Title | upper) .Title }}</a>
+        </span>
+    </article>
+{{ end }}

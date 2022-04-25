@@ -1,0 +1,35 @@
+.button-link {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 4px 12px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 4px;
+    border-bottom: 4px solid $color_ocean_green_approx;
+    font-size: 14px;
+    color: $color_white;
+    background-color: $color_emerald_approx;
+
+    &:hover {
+        color: $color_white;
+        background-color: $color_anchor;
+    }
+
+    &:visited {
+        color: $color_white;
+    }
+}
+
+kbd {
+    display: inline-block;
+    padding: 0.25em;
+    background-color: $color_alabaster;
+    border: 1px solid $color_alto;
+    border-bottom-color: $color_nobel_approx;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 3px;
+    @include box-shadow(inset 0 -1px 0 $color_nobel_approx);
+    font-size: 0.8em;
+    line-height: 1.25;
+    font-family: $font_sf_mono_regular, $font_liberation_mono, $font_roboto_mono, $font_menlo, $font_monaco, $font_consolas, $font_courier_new, $font_courier, $font_monospace;
+    color: $color_gravel_approx;
+}

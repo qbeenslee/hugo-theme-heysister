@@ -1,0 +1,12 @@
+{{- if .Params.categories -}}
+    {{ $type := (printf "%T" .Params.tags)  }}
+    {{- if eq $type "string" -}}
+        {{ .Params.categories }}
+    {{- else if or (isset .Params "categories") (eq $type "[]string") -}}
+        {{ delimit .Params.categories "," }}
+    {{- else -}}
+        {{ .Params.categories }}
+    {{- end -}}
+{{- else -}}
+    {{ "" }}
+{{- end -}}

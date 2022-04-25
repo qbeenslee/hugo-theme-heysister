@@ -1,0 +1,22 @@
+{{- $BaseURL := (trim (print $.Site.BaseURL) " ") -}}
+
+{{- if not (in $BaseURL "localhost" )  -}}
+    {{- if .Site.GoogleAnalytics -}}
+        {{- template "_internal/google_analytics_async.html" . -}}
+    {{- end -}}
+    {{- if .Site.Params.Analytics.matomo.id -}}
+        {{- partial "plugins/analytics/matomo" . -}}
+    {{- end -}}
+    {{- if .Site.Params.Analytics.fathom -}}
+        {{- partial "plugins/analytics/fathom" . -}}
+    {{- end -}}
+    {{- if .Site.Params.Analytics.baidu -}}
+        {{- partial "plugins/analytics/baidu" . -}}
+    {{- end -}}
+    {{- if .Site.Params.Analytics.analytics -}}
+        {{- partial "plugins/analytics/tencent" . -}}
+    {{- end -}}
+    {{- if .Site.Params.Analytics.cnzz -}}
+        {{- partial "plugins/analytics/cnzz" . -}}
+    {{- end -}}
+{{- end -}}

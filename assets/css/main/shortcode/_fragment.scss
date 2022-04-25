@@ -1,0 +1,61 @@
+// wrap/match/normal/safe-full/full
+.fragment {
+    .fragment-wrap {
+        figure {
+            margin: 0;
+        }
+
+        img {
+            object-fit: contain;
+            object-position: top;
+        }
+    }
+
+    .fragment-scope-wrap,
+    .fragment-scope-match,
+    .fragment-scope-normal,
+    .fragment-scope-safe-full {
+        margin-left: -1rem;
+        margin-right: -1rem;
+
+        .fragment-item {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .fragment-scope-safe-full {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    @media screen and (min-width: $size_page_max_content_width) {
+        .fragment-scope-wrap {
+            width: fit-content;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+        }
+        .fragment-scope-match,
+        .fragment-scope-normal {
+        }
+        .fragment-scope-align-left {
+            margin-left: calc(-50vw + 427px + 1rem);
+        }
+        .fragment-scope-align-right {
+            margin-left: 0;
+            width: calc(50vw + 427px - 1rem);
+        }
+        .fragment-scope-safe-full {
+            margin-left: calc(-50vw + 427px + 1rem);
+            width: calc(100vw - 2rem);
+        }
+        .fragment-scope-full {
+            margin-left: calc(-50vw + 427px);
+            width: 100vw;
+        }
+    }
+}
+
+:not([class~="fragment"])+ .fragment {
+    margin-top: 1.2rem;
+}

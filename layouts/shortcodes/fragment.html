@@ -1,0 +1,39 @@
+{{- $types := split "wrap/align-left/align-right/match/normal/safe-full/full" "/" -}}
+{{- $modes := split "light/dark/black" "/" -}}
+{{- $defaultMode := default "light" .Page.Params.themeMode -}}
+{{- $index0Value := default "" (.Get 0) -}}
+{{- if .IsNamedParams -}}
+    {{- .Scratch.Set "fragment-data-mode" (default "" (.Get "mode")) -}}
+    {{- .Scratch.Set "fragment-type" (default "normal" (.Get "type")) -}}
+    {{- .Scratch.Set "fragment-style" (default "background:#0000;" (.Get "style")) -}}
+    {{- .Scratch.Set "fragment-wrap-content" (default false (.Get "wrap-content")) -}}
+{{- else if in $modes $index0Value -}}
+    {{- .Scratch.Set "fragment-data-mode" (default "" (.Get 0)) -}}
+    {{- .Scratch.Set "fragment-type" (default "normal" (.Get 1)) -}}
+    {{- .Scratch.Set "fragment-style" (default "background:#0000;" (.Get 2)) -}}
+    {{- .Scratch.Set "fragment-wrap-content" (default false (.Get 3)) -}}
+{{- else -}}
+    {{- .Scratch.Set "fragment-data-mode" "" -}}
+    {{- .Scratch.Set "fragment-type" (default "normal" (.Get 0)) -}}
+    {{- .Scratch.Set "fragment-style" (default "background:#0000;" (.Get 1)) -}}
+    {{- .Scratch.Set "fragment-wrap-content" (default false (.Get 2)) -}}
+{{- end -}}
+{{- $originalMode := .Scratch.Get "fragment-data-mode" -}}
+{{- $isFixedMode :=  and (ne $originalMode "") (in $modes $originalMode) -}}
+{{- $mode := cond $isFixedMode $originalMode $defaultMode -}}
+{{- $fullScType := .Scratch.Get "fragment-type" -}}
+{{- $style := .Scratch.Get "fragment-style" -}}
+{{- $wrapContent := .Scratch.Get "fragment-wrap-content" -}}
+
+{{- $scopeType := cond (in $types $fullScType) $fullScType "normal" -}}
+<section class="fragment">
+    <div class="content{{ if $isFixedMode }} fixed-data-mode{{ end }}"{{ if $isFixedMode }} data-mode="{{ $mode | safeCSS }}"{{ end }}>
+        <div class="fragment-wrap fragment-scope-{{ $scopeType }} flex {{ if $wrapContent }}auto-flex-wrap{{ else }}flex-wrap{{ end }}" style="{{ $style | safeCSS }}">
+            {{ range split .Inner "<--->" }}
+                <div class="fragment-item {{ if $wrapContent }}flex-auto-fixed{{ else }}flex-auto-wrap{{ end }}">
+                    {{ . | safeHTML | $.Page.RenderString }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</section>

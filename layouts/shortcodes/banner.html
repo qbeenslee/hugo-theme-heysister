@@ -1,0 +1,17 @@
+{{- $modes := split "light/dark/black" "/" -}}
+{{- $index0Value := default "" (.Get 0) -}}
+{{- if .IsNamedParams -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "mode" (default "" (.Get "mode")) -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "background" (default "" (.Get "background")) -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "wrap-content" (default false (.Get "wrap-content")) -}}
+{{- else if in $modes $index0Value -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "mode" (default "" (.Get 0)) -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "background" (default "" (.Get 1)) -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "wrap-content" (default false (.Get 3)) -}}
+{{- else -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "background" (default "" (.Get 0)) -}}
+    {{- .Page.Scratch.SetInMap "bannerContent" "wrap-content" (default false (.Get 2)) -}}
+{{- end -}}
+
+{{- $bannerContent:= .Inner | safeHTML -}}
+{{- .Page.Scratch.SetInMap "bannerContent" "content" $bannerContent -}}

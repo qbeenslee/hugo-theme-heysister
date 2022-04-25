@@ -1,0 +1,23 @@
+{{- $title := ( .Title ) -}}
+{{- $siteTitle := ( .Site.Title ) -}}
+{{- $sep := ( .Site.Params.SEO.titleSeparator | default "|" ) -}}
+{{- if eq .Kind "404" -}}
+  {{ T "title-404" }} {{ $sep }} {{ $siteTitle }}
+{{- else if and $.Site.Taxonomies.tags (eq .Data.Singular "tag") -}}
+ {{ ( i18n .Data.Singular 1 ) }} {{ $sep }} {{ $siteTitle }}
+{{- else if and $.Site.Taxonomies.categories (eq .Data.Singular "category") -}}
+    {{ ( i18n .Data.Singular 1 ) }} {{ $sep }} {{ $siteTitle }}
+{{- else if eq .Data.Singular "archive" -}}
+    {{ ( i18n .Data.Singular 1 ) }} {{ $sep }} {{ $siteTitle }}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- ( ( i18n .Data.Singular 1 ) | default .Data.Singular ) | title -}}
+  {{- print ": " -}}
+  {{- $title -}}
+  {{- print " " $sep " " $siteTitle -}}
+{{- else if $title -}}
+    {{ $title }} {{ $sep }} {{ $siteTitle }}
+{{- else if .IsHome -}}
+  {{ $siteTitle }}
+{{- else -}}
+  {{ $title }} {{ $sep }} {{ $siteTitle }}
+{{- end -}}

@@ -1,0 +1,7 @@
+{{ define "main" }}
+    <div class="horizontal-safe {{ if .Params.banner }}vertical-safe-covered{{ else }}vertical-safe{{ end  }}">
+        {{ partial "pages/section-content" . }}
+        {{ partial "paginator" .}}
+    </div>
+    {{ partial "pages/paginator" . }}
+{{ end }}

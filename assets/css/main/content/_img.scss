@@ -1,0 +1,33 @@
+img {
+    max-width: 100%;
+    overflow: hidden;
+    // object-fit: contain;
+    // height: auto;
+    min-height: 1em;
+    border-style: none;
+    // border-radius: 2px;
+}
+
+p + img {
+    margin-top: 0.3rem;
+}
+
+figure {
+    // display: inline-block;
+    max-width: 100%;
+    margin: 0.75rem 0;
+    isolation: isolate;
+
+    > img {
+        vertical-align: top;
+        max-width: 100%;
+        min-height: 1em;
+    }
+
+    > figcaption {
+        margin-top: 5px;
+        color: var(--text-tip);
+        text-align: center;
+        font-size: 85%;
+    }
+}

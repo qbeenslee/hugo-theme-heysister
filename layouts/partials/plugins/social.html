@@ -1,0 +1,8 @@
+{{- if .Site.Params.Info.enableSocial -}}
+    {{ partial "plugins/social/opengraph" . }}
+    {{ partial "plugins/social/twitter" . }}
+{{- end -}}
+
+{{- if .Site.Params.rss -}}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.RSSLink }}" />
+{{- end -}}

@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+    -moz-osx-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    @include box-sizing(border-box);
+}
+
+:after {
+    @include box-sizing(border-box);
+}
+
+:before {
+    @include box-sizing(border-box);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+    text-shadow: none;
+}
+
+*::selection {
+    background: var(--reverse);
+    color: var(--similar);
+    text-shadow: none;
+}
+
+*::-moz-selection {
+    background: var(--reverse);
+    color: var(--similar);
+    text-shadow: none;
+}
+
+*::-webkit-selection {
+    background: var(--reverse);
+    color: var(--similar);
+    text-shadow: none;
+}
+
+@font-face {
+    font-family: "iconfont";
+    src: url("/fonts/iconfont.eot");
+    src: url("/fonts/iconfont.eot?#iefix") format("embedded-opentype"), url("/fonts/iconfont.woff2") format("woff2"), url("/fonts/iconfont.woff") format("woff"), url("/fonts/iconfont.ttf") format("truetype"), url("/fonts/iconfont.svg#iconfont") format("svg");
+}
+
+/* kaushan-script-regular - latin */
+@font-face {
+    font-family: $font_kaushan_script;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    /* Optimize font loading speed */
+    src: url("/fonts/kaushan-script-v8-latin-regular.eot");
+    /* IE9 Compat Modes */
+    src: local("Kaushan Script"), local("KaushanScript-Regular"), url("/fonts/kaushan-script-v8-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("/fonts/kaushan-script-v8-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("/fonts/kaushan-script-v8-latin-regular.woff") format("woff"), /* Modern Browsers */ url("/fonts/kaushan-script-v8-latin-regular.ttf") format("truetype"),
+        /* Safari, Android, iOS */ url("/fonts/kaushan-script-v8-latin-regular.svg#KaushanScript") format("svg");
+    /* Legacy iOS */
+}
+
+@media screen and (min-width: $size_x_large_max) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: $size_small_min) and (max-width: $size_x_large_min) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: $size_small_max) {
+    html {
+        font-size: 14px;
+    }
+}
+
+html {
+    min-height: 100%;
+    height: 100%;
+    min-width: 300px;
+    margin: 0;
+    position: relative;
+    @include box-sizing(border-box);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    vertical-align: baseline;
+}
+
+body {
+    min-height: 100%; //兼容foot的显示
+    height: 100%;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    line-height: 1.428571428571429;
+}
+
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+body div,
+caption,
+cite,
+dd,
+del,
+details,
+dfn,
+dl,
+dt,
+em,
+fieldset,
+figure,
+form,
+header,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+small,
+strong,
+summary,
+time,
+tr,
+ul,
+var,
+video {
+    vertical-align: baseline;
+    font-family: $font-family-base;
+}
+
+td {
+    vertical-align: middle;
+
+    img {
+        vertical-align: middle;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-title);
+    @include word-wrap(break-all);
+    cursor: pointer;
+    font-weight: 500;
+    vertical-align: baseline;
+
+    &:hover {
+        color: $color_tundora_approx;
+    }
+}
+
+del {
+    text-decoration: line-through;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+    vertical-align: baseline;
+}
+
+th {
+    font-weight: 700;
+    vertical-align: bottom;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--border-divide);
+    transition: border-color 0.5s ease;
+    margin: 20px 0;
+    display: block;
+}
+
+input,
+select {
+    vertical-align: middle;
+    font: 99% $font_sans_serif;
+}
+
+textarea {
+    font: 99% $font_sans_serif;
+}
+
+button {
+    width: auto;
+    overflow: visible;
+}
+
+input[type="button"] {
+    width: auto;
+    overflow: visible;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn {
+    font-style: italic;
+}
+
+figure,
+header {
+    display: block;
+}
+
+small {
+    font-size: 65%;
+}
+
+section {
+    display: block;
+}
+
+summary {
+    display: list-item;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+details summary {
+    cursor: pointer;
+    color: #848484;
+    font-size: 0.85rem;
+}
+
+sup {
+    top: -0.5em;
+}
+
+img[src$="#c"] {
+    display: block;
+    margin: 0.7rem auto;
+}
+
+img[src$="#l"] {
+    float: left;
+    margin: 0.7rem;
+}
+
+img[src$="#r"] {
+    float: right;
+    margin: 0.7rem;
+}
+
+.selectable {
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: text;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default !important;
+}
+
+.clearfix {
+    @extend %clearfix;
+}
+
+input[type="checkbox"] {
+    vertical-align: baseline;
+    margin: 0 0.5rem 0 0;
+}
+
+input[type="radio"] {
+    vertical-align: baseline;
+}
+
+span {
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+nav {
+    display: inline;
+}
+
+@-webkit-keyframes spin-around {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes spin-around {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+.has-text-centered {
+    text-align: center !important;
+}
+
+.gray {
+    background-color: $color_mystic_approx;
+}
+.white {
+    color: white;
+}
+
+.emoji {
+    font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+}
+
+.safe2bottom {
+    position: absolute;
+    bottom: 2%;
+}
+
+@mixin horizontal-safe {
+    max-width: $size_page_max_content_width;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+}

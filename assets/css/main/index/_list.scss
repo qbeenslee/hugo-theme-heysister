@@ -1,0 +1,65 @@
+.articles.list {
+    @include horizontal-safe;
+}
+
+article[class="home-list-normal"] {
+    display: block;
+
+    &:not(:first-child) {
+        margin-top: 2.25rem;
+    }
+}
+
+.section-index,
+.home-index,
+.article-header {
+    .title {
+        font-size: 2rem;
+        font-family: $font-family-title;
+        margin: 5px 0;
+        color: var(--text-title);
+        font-weight: 700;
+        @include word-wrap(break-word);
+        text-decoration: none;
+        font-size: 1.75rem;
+
+        a {
+            text-decoration: none;
+            color: var(--text-title);
+            font-weight: 700;
+
+            &:visited {
+                color: var(--text-title);
+            }
+        }
+
+        span {
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 500;
+            color: inherit;
+        }
+    }
+
+    .subtitle {
+        font-weight: 300;
+        @include word-wrap(break-word);
+        line-height: 1.5;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+
+        em {
+            font-weight: 300;
+        }
+
+        span {
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+    }
+}

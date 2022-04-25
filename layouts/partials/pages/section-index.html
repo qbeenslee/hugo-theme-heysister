@@ -1,0 +1,22 @@
+{{- $context := . -}}
+{{- $listLayout := default "list" (.Param "listLayout") -}}
+{{- $pages := .Paginator.Pages | intersect (where .Pages "Params.hidden" "ne" true) -}}
+{{- $paginator := .Paginate $pages -}}
+<div class="articles {{ $listLayout }}">
+    <div class="articles-wrap">
+        {{- range $pageOne := $paginator.Pages -}}
+            {{- if .Title  -}}
+                {{- $args := (dict "context" $context "current" .) -}}
+                {{- if eq $listLayout "list" -}}
+                    {{ partial "pages/home-index-list" $args }}
+                {{- else if eq  $listLayout "list-thumbnail" -}}
+                    {{ partial "pages/home-index-list-thumbnail" $args }}
+                {{- else if eq  $listLayout "card" -}}
+                    {{ partial "pages/home-index-card" $args }}
+                {{- else -}}
+                    {{ partial "pages/home-index-list" $args }}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    </div>
+</div>

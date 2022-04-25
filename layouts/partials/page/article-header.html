@@ -1,0 +1,17 @@
+<div class="article-header">
+    {{- if not .Params.hideTitle -}}
+        <h1 class="title">{{ partial "variable/articleTitle" . }}</h1>
+    {{- end -}}
+
+    {{- if ne .Params.hideDateTime true -}}
+        {{- if .Params.banner -}}
+            {{ if not .Date.IsZero }}
+                <span class="subtitle">{{.Date.Format  (T "article-date-format")}}</span>
+            {{ end }}
+        {{- else -}}
+            {{ if not .Date.IsZero }}
+                <span class="subtitle">{{.Date.Format  (T "article-date-simple-format")}}</span>
+            {{ end }}
+        {{- end -}}
+    {{- end -}}
+</div>

@@ -1,0 +1,16 @@
+{{- if .Site.Params.Plugins.search -}}
+    <div class="nav-item" title="{{ T "search" }}">
+        <div class="search-button nav-with-shadow nav-color-subject">
+            <i onclick="toggleSearch()" class="icon large search"></i>
+        </div>
+        <div class="search-box">
+            <div class="search">
+                <div class="input">
+                    <input class="prompt"  maxlength="1000" autocomplete="off"  type="text" placeholder="{{ T "search" }}" />
+                    <!--<i class="search icon"></i>-->
+                </div>
+                <div class="results"></div>
+            </div>
+        </div>
+    </div>
+{{- end -}}

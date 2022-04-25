@@ -1,0 +1,80 @@
+.small-bb {
+    background-color: var(--small-bb);
+}
+
+.small-container {
+    max-width: 590px;
+    margin: 0 auto;
+    background-color: var(--block-similar);
+    border: 1px solid var(--border-divide);
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 3px;
+
+    hr {
+        border-top: 1px solid var(--border-divide);
+        margin: 0;
+    }
+
+    article {
+        padding: 12px;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        height: 320px;
+        -o-object-fit: contain;
+        object-fit: contain;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    a {
+        font-size: 0.875rem;
+        line-height: 20px;
+        color: var(--text-title);
+        text-decoration: none;
+    }
+
+    p {
+        font-size: 0.875rem;
+        line-height: 20px;
+        color: var(--text-content);
+        text-decoration: none;
+    }
+
+    .content {
+        font-size: 0.875rem;
+        line-height: 20px;
+        margin: 10px 0;
+    }
+
+    .subtitle {
+        font-weight: 300;
+        @include word-wrap(break-word);
+        line-height: 1.5;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        vertical-align: baseline;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 80%;
+        text-align: left;
+
+        td {
+            padding: 1px 6px;
+            vertical-align: middle;
+            border: 1px solid var(--border-divide);
+        }
+
+        th {
+            padding: 1px 6px;
+            vertical-align: middle;
+            border: 1px solid var(--border-divide);
+            background-color: var(--block-light);
+        }
+    }
+}

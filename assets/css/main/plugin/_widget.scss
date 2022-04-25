@@ -1,0 +1,38 @@
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--block-similar);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid var(--border-divide);
+    border-radius: 3px;
+    color: var(--reverse);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 0.875rem;
+    height: 32px;
+    line-height: 24px;
+    position: relative;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--text);
+
+    &:hover {
+        border-color: var(--border-divide);
+    }
+
+    &:visited {
+        color: --text;
+    }
+}

@@ -1,0 +1,123 @@
+@-webkit-keyframes icon-loading {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes icon-loading {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+i.icon {
+    display: inline-block;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-family: iconfont;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    &:before {
+        background: 0 0 !important;
+    }
+}
+
+i.link.icon,
+i.link.icons {
+    cursor: pointer;
+    opacity: 0.8;
+    -webkit-transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
+}
+
+i.link.icon:hover,
+i.link.icons:hover {
+    opacity: 1 !important;
+}
+i.mini.icon {
+    line-height: 1;
+    font-size: 0.4em;
+}
+
+i.tiny.icon {
+    line-height: 1;
+    font-size: 0.6em;
+}
+i.small.icon {
+    line-height: 1;
+    font-size: 0.75em;
+}
+
+i.large.icon {
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+i.icon.active,
+i.icon.hover {
+    opacity: 1 !important;
+}
+
+i.icon.search:before {
+    content: "\e696";
+}
+
+i.icon.info:before {
+    content: "\e89e";
+}
+
+i.icon.sun:before {
+    content: "\ec2f";
+}
+i.icon.moon-start:before {
+    content: "\e866";
+}
+i.icon.moon:before {
+    content: "\eb5f";
+}
+
+i.icon.bottom-arrow:before {
+    content: "\e617";
+}
+
+i.icon.arrow-left:before {
+    content: "\e841";
+}
+
+i.icon.arrow-right:before {
+    content: "\e843";
+}
+
+i.icon.circle:before {
+    content: "\e934";
+}
+
+i.icon.capture:before {
+    content: "\e63c";
+}

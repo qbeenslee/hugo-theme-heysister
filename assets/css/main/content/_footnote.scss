@@ -1,0 +1,88 @@
+.footnote-return {
+    display: none;
+}
+
+.footnotes {
+    margin: 18px 0;
+
+    > hr {
+        height: 1px;
+        border: 0;
+        border-top: 1px dashed var(--border-divide);
+        margin: 3.75rem 0 1rem;
+    }
+
+    > ol {
+        counter-reset: li;
+        margin: 0 0 0 15px;
+        padding: 0;
+        color: var(--text-suammary);
+
+        > li {
+            font-weight: 300;
+
+            &::marker {
+                unicode-bidi: isolate;
+                font-variant-numeric: tabular-nums;
+                text-transform: none;
+                text-indent: 0px !important;
+                text-align: start !important;
+                text-align-last: start !important;
+            }
+
+            &:not(:first-child) {
+                margin-top: 1rem;
+            }
+        }
+
+        a,
+        p {
+            color: var(--text-secondary);
+            //font-size: 0.85rem;
+        }
+
+        a {
+            &:hover {
+                color: var(--text-suammary);
+            }
+        }
+    }
+
+    .footnote-backref {
+        color: $color_gravel_approx;
+    }
+}
+
+> .footnotes > ol > li {
+    > a {
+        color: $color_ironside_gray_approx;
+    }
+
+    > a[class="footnote-return"] {
+        color: $color_flush_mahogany_approx;
+    }
+}
+
+.footnote-ref {
+    color: $color_white;
+    background-color: $color_gravel_approx;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 2px;
+    font-size: 0.625rem;
+    line-height: 1;
+    padding: 1px 0.3125rem;
+    top: -0.1em;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-decoration: none;
+    cursor: help;
+    position: relative;
+    font-variant-caps: inherit;
+    font-variant-ligatures: inherit;
+    font-style: inherit;
+    font-family: "PingFang SC", $font_helvetica_neue, $font_helvetica, "$font_hiragino_sans_gb", "$font_microsoft_yahei", Arial, $font_sans_serif;
+
+    &:visited {
+        color: $color_white;
+    }
+}

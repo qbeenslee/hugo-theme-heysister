@@ -1,0 +1,46 @@
+{{ partial "pages/section-content" .}}
+
+{{- $context := . -}}
+{{- $regPages := .Site.RegularPages -}}
+{{- $pages := $regPages | intersect (where $regPages "Params.hidden" "ne" true) -}}
+{{- $sections := slice "hide" -}}
+{{- if .Site.Params.layout.ExcludeSections -}}
+    {{- range $item := (.Site.Params.Elayout.xcludeSections) -}}
+        {{- $sections = $sections | append $item -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $pages := $pages | intersect (where $pages "Section" "not in" $sections) | intersect (where $pages "Title" "ne" "") -}}
+
+
+{{- $pagesCount := len $pages -}}
+
+<div class="article-archives">
+    <div class="wrap">
+        <ul class="archives-tree">
+            <li class="archives-node counter">
+                <p>{{ T "archives-counter-format" (dict "Count" $pagesCount) | safeHTML}}</p>
+            </li>
+            {{- range $pages.GroupByDate "2006" -}}
+                <li class="archives-node year">
+                    <p>{{ .Key }}</p>
+                </li>
+                {{- range .Pages -}}
+                    <li class="archives-node article">
+                        <article>
+                            <time title="{{ .Date.Format "2006-01-02" }}" datetime="{{ .Date.Format "2006-01-02" }}" class="time">{{.Date.Format  (T "index-month-day-format") | safeHTML}}</time>
+                            <span class="article-title">
+                                {{- $shouldUppercase := partial "variable/shouldUppercase" $context -}}
+                                <a href="{{ .RelPermalink }}" class="link">{{ cond (eq $shouldUppercase "true") (.Title | upper) .Title }}</a>
+                            </span>
+                        </article>
+                    </li>
+                {{- end -}}
+            {{- end -}}
+            {{- if gt $pagesCount 0 -}}
+                <li class="archives-node empty"></li>
+            {{- end -}}
+        </ul>
+    </div>
+</div>
+

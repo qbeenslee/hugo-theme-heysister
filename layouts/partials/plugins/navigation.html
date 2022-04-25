@@ -1,0 +1,42 @@
+<header id="header" class="auto_header unselectable {{if .Params.banner}} nav-trans{{else}} nav-opaque{{end}}" style="top: 0px; position: fixed; z-index: 1100;">
+    {{- $current := . -}}
+    {{- $cureent_url := .Permalink -}}
+    <!--left side-->
+    <div class="nav-left">
+        <nav>
+            <div class="logo nav-item"><a class="nav-with-shadow nav-color-subject" href="/">{{ .Site.Title }}</a></div>
+            {{ range .Site.Menus.main -}}
+                {{ $topLevel := replace .URL "/" "" }}
+                {{ if .HasChildren }}
+                    {{- $menuSlice := slice "" -}}
+                    {{- range $item := .Children -}}
+                        {{- $menuSlice = $menuSlice | append $item.URL -}}
+                    {{- end -}}
+                    <div class="nav-item dropdown">
+                        <a class="dropbtn{{ if eq $current.RelPermalink .URL | or (in $menuSlice $current.RelPermalink )  | or (eq $current.Type $topLevel) | or (and (eq (default (trim .URL "/") .Identifier) "blog") (in (slice "taxonomy" "taxonomyTerm") $current.Kind)) }} nav-color-active{{ else }} nav-color-normal{{ end }}">{{ .Name }}<span class="caret"></span></a>
+
+                        <div class="dropdown-content">
+                            {{ range .Children }}
+                                {{- if and (in .URL $current.RelPermalink) (ne $current.RelPermalink "/") -}}
+                                    <a href="{{ .URL }}" class="nav-color-active">{{ .Name }}</a>
+                                {{- else -}}
+                                    <a href="{{ .URL }}">{{ .Name }}</a>
+                                {{- end -}}
+                            {{ end }}
+                        </div>
+                    </div>
+                {{- else -}}
+                    <div class="nav-item">
+                        <a class="{{ if eq $current.RelPermalink .URL | or (eq $current.Type $topLevel) | or (and (eq (default (trim .URL "/") .Identifier) "blog") (in (slice "taxonomy" "taxonomyTerm") $current.Kind)) }} nav-color-active{{ else }} nav-color-normal{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+                    </div>
+                {{- end -}}
+            {{ end }}
+        </nav>
+    </div>
+    <!--right side-->
+    <div class="nav-right">
+        {{- partial "plugins/capture" . -}}
+        {{- partial "plugins/darkmode" . -}}
+        {{- partial "plugins/search" . -}}
+    </div>
+</header>

@@ -1,0 +1,21 @@
+footer {
+    border-top: 1px solid var(--border-footer);
+    bottom: 0;
+    margin-top: -60px;
+    width: 100%;
+    height: 60px;
+    color: $color_gravel_approx;
+    display: block;
+    padding: 20px;
+
+    p {
+        font-size: 0.875rem;
+        color: #8e8787;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color_woodsmoke_approx;
+        font-size: 0.75rem;
+    }
+}

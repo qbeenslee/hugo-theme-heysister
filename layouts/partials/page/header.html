@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{ partial "variable/pageTitle" . }}</title>
+<meta name="description" content="{{ partial "variable/description" . }}">
+<meta name="keywords" content="{{ partial "variable/keywords" . }}">
+<meta name="author" content="{{ partial "variable/author" . }}">
+<meta name="msapplication-TileColor" content="{{ if .Params.bodyColor }}{{.Params.bodyColor | safeCSS}}{{ else }}#ffffff{{ end }}">
+<meta name="theme-color" content="{{if .Params.bodyColor}}{{.Params.bodyColor | safeCSS}}{{else}}#ffffff{{ end }}">
+<meta property="config" content="{{ partial "variable/configMeta" . }}">
+{{partial "plugins/social" . }}
+
+{{- if .Site.Params.assets.inlineCSS -}}
+    {{ with resources.Get "css/main.scss" | toCSS | minify }}
+        <style>{{ .Content | safeCSS }}</style>
+    {{ end }}
+{{- else -}}
+    {{ $styles := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | toCSS }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" />
+{{- end -}}
+
+{{- range .Site.Params.Assets.customCSS -}}
+    <link rel='stylesheet' href="{{ .| absURL }}">
+{{- end -}}
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Data.hey.cdn.img.apple_touch_icon }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Data.hey.cdn.img.favicon_32x32 }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Data.hey.cdn.img.favicon_16x16 }}">
+<link rel="manifest" href="{{ .Site.Data.hey.cdn.etc.site_webmanifest }}">
+{{ partial "plugins/preload/banner.html" . }}
+{{ partial "page/header-scripts" . }}

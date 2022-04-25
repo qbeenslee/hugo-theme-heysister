@@ -1,0 +1,92 @@
+{{- $diyBanner := .Page.Scratch.Get "bannerContent" -}}
+
+{{- $bannerHeight := default "normal" (.Params.bannerHeight) -}}
+{{- .Page.Scratch.Set "bannerHeight" $bannerHeight -}}
+{{- if and (and (and ( and (ne $bannerHeight "normal") (ne $bannerHeight "huge")) (ne $bannerHeight "full")) (ne $bannerHeight "small")) (ne $bannerHeight "tiny") -}}
+    {{- $bannerHeight :="normal" -}}
+    {{- .Page.Scratch.Set "bannerHeight" "normal" -}}
+{{- end -}}
+
+
+{{- if $diyBanner -}}
+    {{- $diyBackground := index $diyBanner "background" -}}
+    {{- $diyDataMode := index $diyBanner "mode" -}}
+    {{- $diyWrap := index $diyBanner "wrap-content" -}}
+    <div id="banner" class="banner {{ .Page.Scratch.Get "bannerHeight" | safeCSS}}">
+        <div class="banner-wrap" style="{{ $diyBackground | safeCSS }}">
+            <div class="content full-content-wrap flex  justify-content-center align-items-center" {{ with $diyDataMode }}data-mode="{{ . | safeCSS }}"{{ end }}>
+                <div class="flex flex-wrap" >
+                    {{- $diyContent := index $diyBanner "content" -}}
+                    {{ range split $diyContent "<--->" }}
+                        <section class="full-content-inner {{ if $diyWrap }}flex-auto-fixed{{ else }}flex-auto-wrap{{ end }}">
+                            {{ . | $.Page.RenderString | safeHTML }}
+                        </section>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+{{- else if .Params.banner -}}
+    <div id="banner" class="banner {{ .Scratch.Get "bannerHeight" | safeCSS}}">
+        <div class="banner-wrap">
+            {{- if (hasPrefix .Params.banner "linear-gradient") -}}
+                <div class="banner-background" style="background-image: {{ .Params.banner | safeCSS }};">
+                </div>
+            {{- else if or (hasPrefix .Params.banner "rgb") (hasPrefix .Params.banner "#") -}}
+                <div class="banner-background" style="background: {{ .Params.banner | safeCSS }};">
+                </div>
+            {{- else if eq .Params.banner "random" -}}
+                {{ $randomColor := index (shuffle .Site.Data.hey.color.thumbnails) 1}}
+                <div class="banner-background" style="background-image:{{ $randomColor | safeCSS }};"></div>
+            {{- else -}}
+                <img class="nozoom cover lazyload" alt="banner" data-original="{{ .Params.banner }}" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=">
+            {{- end -}}
+            {{- if or (.Params.bannerTitle) (.Params.bannerSubtitle) -}}
+                <div class="banner-content">
+                    {{- $bannerTitleColor := default "#FFF" (.Params.bannerTitleColor) -}}
+                    {{- if .Params.bannerTitle -}}
+                        <div class="title-wrap unselectable">
+                            {{- $shouldUppercase := partial "variable/shouldUppercase" . -}}
+                            <span class="title selectable" style="color:{{$bannerTitleColor | safeCSS}};">{{ cond (eq $shouldUppercase "true") (.Params.bannerTitle | upper) .Params.bannerTitle }}</span>
+                            {{- with .Params.bannerTitleReference -}}
+                                <sup class="reference">
+                                    <a href="{{.}}" target="_blank">
+                                        <i class="icon white link tiny info"></i>
+                                    </a>
+                                </sup>
+                            {{- end -}}
+                        </div>
+                    {{- end -}}
+                    {{- if .Params.bannerSubtitle -}}
+                        {{- $subtitleColor := default $bannerTitleColor (.Params.bannerSubtitleColor) -}}
+                        <div class="subtitle-wrap">
+                            {{- $bannerSubtitleLength := strings.RuneCount .Params.bannerSubtitle  -}}
+                            {{- if .Params.bannerTitle -}}
+                                <span class="normal-size-text" style="color:{{$subtitleColor | safeCSS}};">{{ .Params.bannerSubtitle }}</span>
+                            {{- else -}}
+                                {{- if gt $bannerSubtitleLength 10 -}}
+                                    <span class="normal-size-text" style="color:{{$subtitleColor | safeCSS}};">{{ .Params.bannerSubtitle }}</span>
+                                {{- else -}}
+                                    <span class="big-size-text" style="color:{{$subtitleColor | safeCSS}};">{{ .Params.bannerSubtitle }}</span>
+                                {{- end -}}
+                                {{- with .Params.bannerTitleReference -}}
+                                    <sup class="reference">
+                                        <a href="{{.}}" target="_blank">
+                                            <i class="icon white link tiny info"></i>
+                                        </a>
+                                    </sup>
+                                {{- end -}}
+                            {{- end -}}
+                        </div>
+                    {{- end -}}
+                </div>
+            {{- end -}}
+            {{- if eq $bannerHeight "full" -}}
+                <a href="#page">
+                    <i class="banner-bottom-arrow icon bottom-arrow bounce"></i>
+                </a>
+            {{- end -}}
+
+        </div>
+    </div>
+{{- end -}}

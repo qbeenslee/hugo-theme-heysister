@@ -1,0 +1,13 @@
+{{ define "main" }}
+    <div class="horizontal-safe vertical-safe">
+        {{ partial "pages/section-content" .}}
+        <div class="article-taxonomy">
+            <h2 class="name">
+                {{- $shouldUppercase := partial "variable/shouldUppercase" . -}}
+                {{- if eq $shouldUppercase "true" -}}{{ .Title | upper }}{{ else }}{{ .Title }}{{ end}}
+                </h2>
+                {{ partial "pages/taxonomy-index" . }}
+        </div>
+    </div>
+    {{ partial "pages/paginator" . }}
+{{ end }}

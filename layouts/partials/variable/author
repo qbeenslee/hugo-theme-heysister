@@ -1,0 +1,13 @@
+{{- if or .Params.author .Site.Author.name -}}
+    {{ $authorType := (printf "%T" .Params.author)  }}
+    {{- if eq $authorType "[]string" -}}
+        {{ delimit .Params.author "," }}
+    {{- else -}}
+        {{- $author_id := .Params.author | default .Site.Author.name -}}
+        {{- $author := (index ($.Site.Data.authors | default dict) $author_id) -}}
+        {{- $author_lang := (index ($author | default dict) .Site.Language.Lang) -}}
+        {{- $author_name := $author_lang.name.display | default $author.name.display | default $author_id -}}
+        {{ $author_name | safeHTML }}
+    {{- end -}}
+{{- end -}}
+

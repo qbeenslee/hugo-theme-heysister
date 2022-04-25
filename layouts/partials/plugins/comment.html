@@ -1,0 +1,24 @@
+{{- $BaseURL := (trim (print $.Site.BaseURL) " ") -}}
+
+{{- if ne .Params.hideComment true -}}
+    <div class="comment-wrap unselectable">
+        {{- if .Site.Params.comments.livere -}}
+            {{- partial "plugins/comments/livere" . -}}
+        {{- end -}}
+        {{- if .Site.Params.comments.valine -}}
+            {{- partial "plugins/comments/valine" . -}}
+        {{- end -}}
+        {{- if .Site.Params.comments.gitalk.owner -}}
+            {{- partial "plugins/comments/gitalk" . -}}
+        {{- end -}}
+        {{- if .Site.Params.comments.gitment.owner -}}
+            {{- partial "plugins/comments/gitment" . -}}
+        {{- end -}}
+        {{- if .Site.Params.comments.utterances.owner -}}
+            {{- partial "plugins/comments/utterances" . -}}
+        {{- end -}}
+        {{- if .Site.Params.comments.disqus -}}
+            {{- partial "plugins/comments/disqus" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}

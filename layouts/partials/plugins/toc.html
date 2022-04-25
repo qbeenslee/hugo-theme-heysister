@@ -1,0 +1,23 @@
+{{- if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
+    {{- $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content -}}
+    {{- if ge (len $headers) 1 -}}
+        <div id="content-toc-box" class="content-toc-box unselectable" style="height: calc(80% - 60px);right: calc(50% - 720px);{{ if .Params.banner }}display:none;{{ end }}">
+            <div class="content-toc" id="content-toc">
+                <div class="wrap">
+                    <ul id="content-toc-tree">
+                        {{- range $headers -}}
+                            {{- $header := . -}}
+                            {{- $nodeLevel := (replaceRE "<(h[1-6]).*>" "$1" $header ) -}}
+                            {{- $anchorId :=  (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) -}}
+                            <li class="toc-node node-{{ $nodeLevel }}">
+                                <a class="toc-link" href="#{{ $anchorId }}" title="{{ $header | plainify | htmlUnescape }}">
+                                    <span>{{ $header | plainify | htmlUnescape }}</span>
+                                </a>
+                            </li>
+                        {{- end -}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {{- end -}}
+{{- end -}}

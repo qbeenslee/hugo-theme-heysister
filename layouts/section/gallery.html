@@ -1,0 +1,8 @@
+{{- $pages := ($.Site.GetPage "section" "gallery").Pages.ByPublishDate.Reverse -}}
+{{- $paginator := .Paginate $pages -}}
+{{- range sort .Paginator.Pages -}}
+    {{/*}}
+
+    {{ partial "pages/home-index-list" . }}
+    {{*/}}
+{{- end -}}

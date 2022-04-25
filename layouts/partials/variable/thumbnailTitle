@@ -1,0 +1,15 @@
+{{- if or (eq .Params.tags 0) (eq .Params.tags nil) -}}
+    {{- if .Title -}}
+        {{ substr .Title 0 2 }}
+    {{- else -}}
+        {{""}}
+    {{- end -}}
+{{- else if and .Params.tags (and (ne .Params.tags 0) (gt (len .Params.tags) 0)) -}}
+    {{- if gt (len .Params.tags) 1 -}}
+        {{ index .Params.tags 1 }}
+    {{- else -}}
+        {{ index .Params.tags 0 }}
+    {{- end -}}
+{{- else -}}
+    {{ substr .Title 0 2 }}
+{{- end -}}

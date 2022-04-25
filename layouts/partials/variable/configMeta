@@ -1,0 +1,1 @@
+{{- if (or (.Site.Params.Layout.protectImage) (.Params.protectImage) ) -}}protectImage{{- end -}},{{- with .Site.Params.Layout.listStyle -}}{{ . }}{{- end  -}}

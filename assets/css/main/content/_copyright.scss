@@ -1,0 +1,16 @@
+.article-copyright {
+    margin: 3.75rem 0 2.5rem;
+    line-height: 1.4em;
+    text-align: right;
+    color: $color_mountain_mist_approx;
+    font-size: 0.875rem;
+
+    p {
+        text-align: inherit;
+        margin: 0.625rem 0;
+
+        a {
+            color: var(--text-content);
+        }
+    }
+}

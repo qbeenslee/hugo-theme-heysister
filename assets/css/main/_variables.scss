@@ -1,0 +1,115 @@
+//variables
+$size_page_max_content_width_min: 855px;
+$size_page_max_content_width: 854px;
+
+$size_tiny_min: 240px;
+$size_tiny_max: 239px;
+$size_small_min: 576px;
+$size_small_max: 575px;
+$size_medium_min: 768px;
+$size_medium_max: 767px;
+$size_large_min: 992px;
+$size_large_max: 991px;
+$size_x_large_min: 1226px;
+$size_x_large_max: 1225px;
+$size_xx_large_min: 1441px;
+$size_xx_large_max: 1440px;
+
+//function colors
+$color_dark: rgb(28, 28, 30);
+$color_light: #ffffff;
+$color_background_notwhite: #f2f2f2;
+
+//color name
+$color_shark_approx: #262a30;
+$color_white: #fff;
+$color_gallery_approx: #eee;
+$color_gravel_approx: #5e5e5e;
+$color_denim_approx: #1b69b6;
+$color_iron_approx: #d3d6db;
+$color_riptide_77_approx: rgba(134, 238, 218, 0.77);
+$color_woodsmoke_approx: #111;
+$color_jelly_bean_approx: #2077b2;
+$color_mystic_approx: #e6ecf0;
+$color_alabaster_approx: #f9f9f9;
+$color_black_20: rgba(0, 0, 0, 0.2);
+$color_seashell: #f1f1f1;
+$color_coral_red_approx: #ff2a40;
+$color_black: #000;
+$color_chetwode_blue_approx: #7f95d1;
+$color_tickle_me_pink_approx: #ff82a9;
+$color_elm_approx: #177e89;
+$color_golden_tainoi_approx: #ffc857;
+$color_wild_sand: #f4f4f4;
+$color_cape_cod_approx: #414141;
+$color_bombay_approx: #aeb1b5;
+$color_fuscous_gray_approx: #555;
+$color_tundora_approx: #444;
+$color_mine_shaft_approx: #333;
+$color_silver_chalice_approx: #aeaeae;
+$color_pickled_bluewood_approx: #34495e;
+$color_pampas_approx: #f5f2f0;
+$color_alto_approx: #d9d9d9;
+$color_thunderbird_approx: #c0341d;
+$color_bridesmaid_approx: #fcefed;
+$color_black_30: rgba(0, 0, 0, 0.3);
+$color_silver_sand_approx: #c2c4c5;
+$color_mercury_approx: #e4e6e8;
+$color_mountain_mist_approx: #929292;
+$color_mine_shaft: #323232;
+$color_cloud_approx: #c4c4c4;
+$color_ironside_gray_approx: #676767;
+$color_flush_mahogany_approx: #d03c3c;
+$color_ocean_green_approx: #3aa373;
+$color_emerald_approx: #4fc08d;
+$color_alabaster: #fafafa;
+$color_alto: #dbdbdb;
+$color_nobel_approx: #b5b5b5;
+$color_mercury_50_approx: rgba(210, 210, 240, 0.5);
+$color_gray_nurse_approx: #eaeaea;
+$color_gallery: #efefef;
+$color_rangoon_green_approx: #181818;
+$color_suva_gray_approx: #878787;
+$color_vista_blue_approx: #7cd4a2;
+$color_content_font: rgb(62, 62, 62);
+$color_footnote: #6b6b6b;
+
+//fonts
+$font_kaushan_script: Kaushan Script;
+$font_sans_serif: sans-serif;
+$font_classic_grotesque_w01: Classic Grotesque W01;
+$font_arial: Arial;
+$font_lucida_grande: Lucida Grande;
+$font_hiragino_sans_gb: Hiragino Sans GB;
+$font_st_heiti: STHeiti;
+$font_microsoft_yahei: Microsoft YaHei;
+$font_wenquanyi_micro_hei: WenQuanYi Micro Hei;
+$font_sim_sun: SimSun;
+$font_helvetica_neue: Helvetica Neue;
+$font_helvetica: Helvetica;
+$font_times: times;
+$font_athelas: Athelas;
+$font_serif: serif;
+$font_monospace: monospace;
+$font_monaco: Monaco;
+$font_andale_mono: Andale Mono;
+$font_courier_new: Courier New;
+$font_consolas: Consolas;
+$font_menlo: Menlo;
+$font_sf_mono_regular: SFMono-Regular;
+$font_liberation_mono: Liberation Mono;
+$font_roboto_mono: Roboto Mono;
+$font_roboto: Roboto;
+$font_courier: Courier;
+
+//font-family
+$font-family-base: $font_classic_grotesque_w01, $font_arial, $font_lucida_grande, $font_hiragino_sans_gb, $font_st_heiti, $font_microsoft_yahei, $font_wenquanyi_micro_hei, $font_sim_sun, $font_sans_serif;
+$font-family-content-h: source sans pro,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol; //$font_athelas, $font_hiragino_sans_gb, $font_st_heiti, $font_microsoft_yahei, $font_wenquanyi_micro_hei, $font_sim_sun, $font_sans_serif, $font_serif;
+$font-family-content-p: source sans pro,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol; //-apple-system, BlinkMacSystemFont, $font_roboto, $font_helvetica_neue, "Segoe UI", Meiryo, $font_sans_serif;
+$font-family-title: $font_athelas, $font_hiragino_sans_gb, $font_st_heiti, $font_microsoft_yahei, $font_wenquanyi_micro_hei, $font_sim_sun, $font_sans_serif, $font_serif;
+$font-family-banner-title: -apple-system, BlinkMacSystemFont, $font_helvetica_neue, "PingFang SC", "$font_microsoft_yahei", "Source Han Sans SC", "Noto Sans CJK SC", "$font_wenquanyi_micro_hei", $font_sans_serif;
+$font-family-toc: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, $font_roboto, PingFang SC, $font_hiragino_sans_gb, $font_microsoft_yahei, $font_helvetica Neue, $font_helvetica, $font_arial, $font_sans_serif;
+
+
+
+

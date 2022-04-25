@@ -1,0 +1,19 @@
+{{- if or .Paginator.HasPrev .Paginator.HasNext  -}}
+    <div id="page-paginator" class="horizontal-safe">
+        <ul class="pager">
+            {{- if .Paginator.HasPrev -}}
+                <li class="previous">
+                    <a class="button" href="{{ .Paginator.Prev.URL }}" title="{{ T "prev"}}">{{ T "prev"}}</a>
+                </li>
+            {{- end -}}
+            {{- if .Paginator.HasNext -}}
+                <li class="next">
+                    <a class="button" href="{{ .Paginator.Next.URL }}" title="{{ T "next"}}">{{ T "next"}}</a>
+                </li>
+            {{- end -}}
+        </ul>
+    </div>
+{{- end -}}
+
+
+<!-- {{ template "_internal/pagination.html" . }} -->

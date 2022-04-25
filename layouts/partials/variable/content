@@ -1,0 +1,37 @@
+{{- $content00 := (replace .Content "<table>"  "<div class=\"table-wrapper\"><table>") | safeHTML -}}
+{{- $content01 := (replace $content00 "</table>"  "</table></div>") | safeHTML -}}
+{{- $content02 := (replace $content01 "<ul>\n<li><input"  "<ul class=\"task-list\">\n<li><input") | safeHTML -}}
+
+{{- $RE_IMG_SRC_IN := "<img(.*?)src=\"([^\"]*?)\"(.*?)>" -}}
+{{- $RE_IMG_SRC_OUT := "<img src=\"data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=\" data-original=\"$2\"$1$3>" -}}
+{{- $content2_1 := $content02 | replaceRE $RE_IMG_SRC_IN $RE_IMG_SRC_OUT | safeHTML -}}
+
+{{- $RE_PRE_CODE_IN := "<pre (.*?)><code class=\"language-(.*?)\"" -}}
+{{- $RE_PRE_CODE_OUT := "<pre tabindex=\"0\" class=\"chroma code-$2\"><div class=\"prefix\"></div><code class=\"language-$2\"" -}}
+{{- $content2_2 := $content2_1 | replaceRE $RE_PRE_CODE_IN $RE_PRE_CODE_OUT | safeHTML -}}
+
+{{- $content3_0 := $content2_2 -}}
+
+{{- $photoPopup := partial "variable/photoPopup" . -}}
+{{- if $photoPopup -}}
+
+    {{- $RE_WITH_NOZOOM_IN_0 := "<img(.*?)nozoom(.*?)>" -}}
+    {{- $RE_WITH_NOZOOM_OUT_0 := "<image$1 nozoom$2>" -}}
+    {{- $content3 := $content3_0 | replaceRE $RE_WITH_NOZOOM_IN_0 $RE_WITH_NOZOOM_OUT_0 | safeHTML -}}
+
+    {{- $RE_WITH_WIDTH_IN_0 := "<img(.*?)alt=\"([^\"]*?)\"(.*?)>" -}}
+    {{- $RE_WITH_WIDTH_OUT_0 := "<figure class=\"image-dialog\"><image $1 alt=\"$2\" $3><figcaption>$2</figcaption></figure>" -}}
+    {{- $content4 := $content3 | replaceRE $RE_WITH_WIDTH_IN_0 $RE_WITH_WIDTH_OUT_0 | safeHTML -}}
+
+    {{- $RE_WITH_OUT_ALT_IN_0 := "<img(.*?)>" -}}
+    {{- $RE_WITH_OUT_ALT_OUT_0 := "<figure class=\"image-dialog\"><image$1></figure>" -}}
+    {{- $content5 := $content4 | replaceRE $RE_WITH_OUT_ALT_IN_0 $RE_WITH_OUT_ALT_OUT_0 | safeHTML -}}
+
+    {{- $RE_WITH_REBACK_IN_0 := "<image(.*?)>" -}}
+    {{- $RE_WITH_REBACK_OUT_0 := "<img$1>" -}}
+    {{- $content6 := $content5 | replaceRE $RE_WITH_REBACK_IN_0 $RE_WITH_REBACK_OUT_0 | safeHTML -}}
+
+    {{ $content6 }}
+{{- else -}}
+    {{ $content3_0 }}
+{{- end -}}

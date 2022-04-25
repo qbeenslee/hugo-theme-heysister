@@ -1,0 +1,78 @@
+table {
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8125rem;
+    text-align: left;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    padding-right: 2px;
+
+    > tbody {
+        tr {
+            &:hover {
+                background-color: var(--block-similar);
+            }
+        }
+    }
+
+    td {
+        font-size: 0.8125rem;
+        vertical-align: top;
+        padding: 6px 12px;
+        border: 1px solid var(--border-divide);
+        vertical-align: top;
+        @include word-wrap(break-word);
+        height: 30px;
+
+        * {
+            font-size: 0.8125rem;
+            @include word-wrap(break-word);
+        }
+    }
+
+    th {
+        font-size: 0.8125rem;
+        vertical-align: top;
+        padding: 6px 12px;
+        border: 1px solid var(--border-divide);
+        background-color: var(--block-light);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-y: auto;
+    _overflow: auto;
+    margin-bottom: 12px;
+
+    + * {
+        margin: 1em 0;
+    }
+
+    + blockquote {
+        margin: 0.5em 0 1em 0;
+    }
+}
+
+p + .table-wrapper {
+    margin-top: 0.6rem;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 8px;
+    border: 3px solid $color_white;
+    background-color: $color_black_30;
+}
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}

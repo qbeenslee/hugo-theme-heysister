@@ -1,0 +1,30 @@
+name = "heysister"
+license = "MIT"
+description = "Simple Hugo blogging theme"
+tags = [
+  "blog",
+  "minimal",
+  "minimalist",
+  "responsive"
+]
+features = [
+  "accessibility",
+  "analytics",
+  "comments",
+  "cover-image",
+  "favicon",
+  "multilingual",
+  "opengraph",
+  "pagination",
+  "shortcodes",
+  "single-column",
+  "syntax-highlighting",
+]
+
+[author]
+  name = "qbeenslee"
+  homepage = "https://qbeenslee.com"
+
+[original]
+  name = "qbeenslee"
+  homepage = "https://qbeenslee.com"

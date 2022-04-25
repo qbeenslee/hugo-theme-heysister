@@ -1,0 +1,21 @@
+.b-right-s-center {
+    text-align:right;
+}
+
+.b-left-s-center {
+    text-align:left;
+}
+
+
+
+@media screen and (max-width: $size_large_max) {
+
+    .b-right-s-center {
+        text-align:center;
+    }
+
+    .b-left-s-center {
+        text-align:center;
+    }
+
+}

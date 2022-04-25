@@ -1,0 +1,15 @@
+{{ if .IsNamedParams }}
+    {{- $friend_link := .Get "link" -}}
+    {{- $friend_slogan := .Get "slogan" -}}
+    {{- $friend_logo := .Get "logo" -}}
+    {{- $friend_name := .Get "name" -}}
+    <!-- {{- $column := float (default "3" (.Parent.Get "column")) -}} -->
+    {{- $with_precent := math.Floor (div 100.0 $column) -}}
+    <li class="friend">
+        <a href="{{ $friend_link }}" title="{{ $friend_name }}" target="_blank" >
+            <img class="nozoom friend-logo" src="{{ $friend_logo }}"/>
+            <p class="friend-name">{{ $friend_name }}</p>
+            <p class="friend-slogan">{{ $friend_slogan }}</p>
+        </a>
+    </li>
+{{- end -}}

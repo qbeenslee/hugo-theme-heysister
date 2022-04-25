@@ -1,0 +1,5 @@
+{{- $scratch := newScratch -}}
+{{- $content := partial "variable/content" . -}}
+{{- .Scratch.Set "content" $content -}}
+{{- .Scratch.Set "content-text" (print $content) -}}
+{{- .Page.Scratch.Set "themeMode" .Params.themeMode -}}

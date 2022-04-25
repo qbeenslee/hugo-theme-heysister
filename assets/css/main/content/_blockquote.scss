@@ -1,0 +1,111 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    + blockquote {
+        font-style: italic;
+        border-left: none;
+        @include box-sizing(border-box);
+        margin: 1rem 0 2rem;
+        padding: 0 0 0 2rem;
+        color: var(--text-suammary);
+
+        &:before {
+            content: "“";
+            display: block;
+            font-family: $font_times;
+            font-style: normal;
+            font-size: 3rem;
+            color: var(--border-divide);
+            font-weight: bold;
+            line-height: 1.875rem;
+            margin-left: -2rem;
+            position: absolute;
+        }
+
+        > p {
+            font-size: 1rem;
+        }
+    }
+}
+
+:not(blockquote):not(li) > p {
+    margin: 1.5em 0 1.5em 0;
+}
+
+blockquote {
+    padding: 0 10px;
+    border-left: 4px solid var(--border-divide);
+    margin: 0.5em 0 1em 0;
+    font-style: italic;
+    color: var(--text-suammary);
+
+    &:first-child {
+        font-style: italic;
+        border-left: none;
+        @include box-sizing(border-box);
+        margin: 16px 0 32px;
+        padding: 0 0 0 2rem;
+        color: var(--text-suammary);
+
+        > p {
+            font-size: 1rem;
+        }
+
+        p + p {
+            margin-top: 1rem;
+        }
+
+        &:before {
+            content: "“";
+            display: block;
+            font-family: $font_times;
+            font-style: normal;
+            font-size: 3rem;
+            color: var(--border-divide);
+            font-weight: bold;
+            line-height: 30px;
+            margin-left: -2rem;
+            position: absolute;
+        }
+    }
+
+    > p {
+        font-size: 0.875rem;
+    }
+
+    p + p {
+        margin-top: 0.875rem;
+    }
+
+    &::after {
+        content: none;
+    }
+}
+
+@media screen and(max-width: $size_medium_max) {
+    .content blockquote {
+        padding: 0 0 0 30px;
+
+        &:before {
+            margin-left: -32px;
+            font-size: 36px;
+            line-height: 30px;
+        }
+    }
+}
+
+q {
+    quotes: none;
+    vertical-align: baseline;
+
+    &:after {
+        content: none;
+    }
+
+    &:before {
+        content: none;
+    }
+}

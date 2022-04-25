@@ -1,0 +1,273 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// mixin scss
+// 包括常用的mixin，%及@function
+// mixin，通过@include调用，样式通过拷贝的方式使用，尤其适用于传递参数
+// %，通过@extend调用，样式通过组合申明的方式使用，适用于不传参数的代码片段
+// @function，返回一个值，用于调用
+//-----------------------------------------------------
+// 开关设置
+//-----------------------------------------------------
+$lte7: false !default; //是否兼容ie6-7
+// $filter: false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景
+// $printStyleSwitch: false !default; //是否开启打印样式
+$base-font-size: 16px;
+$moz19: false !default; //是否兼容 Firefox <= 19
+
+// mixin & %
+// 既定义了mixin也定义了%，根据需求使用@include或@extend调用
+//-----------------------------------------------------
+
+@mixin css3-prefix($property, $value) {
+    -webkit-#{$property}: #{$value}; // Safari <= 5
+    @if $moz19 {
+        -moz-#{$property}: #{$value}; // Firefox <= 19
+    }
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    #{$property}: #{$value};
+}
+
+// box-shadow
+@mixin box-shadow($shadow...) {
+    @include css3-prefix("shadow", $shadow);
+}
+
+/// Animation
+/// @param {*} $str - name duration timing-function delay iteration-count direction fill-mode play-state ([http://www.w3schools.com/cssref/css3_pr_animation.asp](http://www.w3schools.com/cssref/css3_pr_animation.asp))
+/// @require {mixin} css3-prefix
+
+@mixin animation($str) {
+    @include css3-prefix("animation", $str);
+}
+
+@mixin transition($args...) {
+    @include css3-prefix("transition", $args);
+}
+
+@mixin transform($params) {
+    @include css3-prefix("transform", $params);
+}
+
+@mixin box-sizing($box-model) {
+    @include css3-prefix("box-sizing", $box-model);
+}
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation== "vertical" {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation== "horizontal" {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+@mixin box($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+// mixin & %
+// 既定义了mixin也定义了%，根据需求使用@include或@extend调用
+//-----------------------------------------------------
+
+// inline-block
+// ie6-7 *display: inline;*zoom:1;
+@mixin inline-block($extend: true) {
+    @if $extend {
+        @extend %inline-block;
+    } @else {
+        display: inline-block;
+        @if $lte7 {
+            *display: inline;
+            *zoom: 1;
+        }
+    }
+}
+%inline-block {
+    @include inline-block(false);
+}
+
+// Center-align a block level element
+// block得有宽度margin左右为auto才能居中
+@mixin center-block($extend: true) {
+    @if $extend {
+        @extend %center-block;
+    } @else {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+%center-block {
+    @include center-block(false);
+}
+
+// float left & right
+@mixin float($float: left) {
+    float: $float;
+    @if $lte7 {
+        display: inline;
+    }
+}
+%float {
+    @include float;
+}
+
+// clearfix
+// 闭合子元素的浮动
+/// Provides an easy way to include a clearfix for containing floats.
+///
+/// @link http://cssmojo.com/latest_new_clearfix_so_far/
+///
+/// @example scss - Usage
+///   .element {
+///     @include clearfix;
+///   }
+///
+/// @example css - CSS Output
+///   .element::after {
+///     clear: both;
+///     content: "";
+///     display: table;
+///   }
+@mixin clearfix($extend: true) {
+    @if $extend {
+        @extend %clearfix;
+    } @else {
+        @if $lte7 {
+            *zoom: 1;
+        }
+        &:before,
+        &:after {
+            content: "";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+}
+%clearfix {
+    @include clearfix(false);
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+// 既隐藏于视觉也隐藏于屏幕浏览器
+@mixin hidden($extend: true) {
+    @if $extend {
+        @extend %hidden;
+    } @else {
+        display: none !important;
+        visibility: hidden;
+    }
+}
+%hidden {
+    @include hidden(false);
+}
+
+// Hide only visually, but have it available for screenreaders
+// 只隐藏于视觉，屏幕浏览器可以阅读
+@mixin visually-hidden($extend: true) {
+    @if $extend {
+        @extend %visually-hidden;
+    } @else {
+        position: absolute;
+        @if $lte7 {
+            clip: rect(1px 1px 1px 1px); //ie6/7
+        }
+        clip: rect(1px, 1px, 1px, 1px); //standard
+    }
+}
+%visually-hidden {
+    @include visually-hidden(false);
+}
+
+/// Transform
+/// @param {List} $params - Params
+/// @require {mixin} css3-prefix
+
+@mixin word-wrap($value) {
+    word-wrap: $value;
+    overflow-wrap: $value;
+}
+
+@mixin linear-gradient($from, $to) {
+    background: $to;
+    background: -moz-linear-gradient(top, $from 0%, $to 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $from), color-stop(100%, $to));
+    background: -webkit-linear-gradient(top, $from 0%, $to 100%);
+    background: -o-linear-gradient(top, $from 0%, $to 100%);
+    background: linear-gradient(to bottom, $from 0%, $to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to});
+}
+
+/// Provides an easy way to change the `word-wrap` property.
+///
+/// @param {String} $wrap [break-word]
+///   Value for the `word-break` property.
+///
+/// @example scss - Usage
+///   .wrapper {
+///     @include word-wrap(break-word);
+///   }
+///
+/// @example css - CSS Output
+///   .wrapper {
+///     overflow-wrap: break-word;
+///     word-break: break-all;
+///     word-wrap: break-word;
+///   }
+
+@mixin word-wrap($wrap: break-word) {
+    overflow-wrap: $wrap;
+    word-wrap: $wrap;
+
+    @if $wrap == break-word {
+        word-break: break-all;
+    } @else {
+        word-break: $wrap;
+    }
+}
+
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default !important;
+}
+
+/// Responsive manager.
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+    @if $raw-query {
+        $query: if(type-of($raw-query) == "string", unquote($raw-query), inspect($raw-query));
+        @media #{$query} {
+            @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+        +'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+@function px2rem($px, $base-font-size) {
+    @if (unitless($px)) {
+        //unitless函数判断有无单位，无单位返回true
+        @return ($px / $base-font-size) * 1rem;
+    } @else if (unit($px) == em) {
+        //函数取出传入参数的单位 px/em/rem..
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}

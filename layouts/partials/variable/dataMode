@@ -1,0 +1,4 @@
+{{- $modes:= split "black,dark,light" "," -}}
+{{- if in $modes .Params.themeMode -}}
+    {{ return .Params.themeMode }}
+{{- end -}}

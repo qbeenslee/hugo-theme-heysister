@@ -1,0 +1,19 @@
+{{- $title := ( .Title ) -}}
+{{- $siteTitle := ( .Site.Title ) -}}
+{{- $shouldUppercase := partial "variable/shouldUppercase" . -}}
+{{- if $title -}}
+  {{- if eq $shouldUppercase "true"  -}}
+    {{ $title | upper }}
+  {{- else -}}
+    {{ $title }}
+  {{ end }}
+{{- else if .IsHome -}}
+  {{ $siteTitle }}
+{{- else  if eq .Kind "404" -}}
+  {{ T "title404" }}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- ( ( i18n .Data.Singular 1 ) | default .Data.Singular ) | title -}}
+  {{ $title }}
+{{- else -}}
+    {{ $title }}
+{{- end -}}

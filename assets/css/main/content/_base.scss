@@ -1,0 +1,89 @@
+article,
+b,
+blockquote,
+caption,
+cite,
+dd,
+del,
+details,
+dfn,
+dl,
+dt,
+fieldset,
+figure,
+form,
+i,
+img,
+ins,
+kbd,
+label,
+legend,
+mark,
+p,
+q,
+samp,
+section,
+strong,
+summary,
+time,
+var,
+video {
+    letter-spacing: 0.0187rem;
+    line-height: 1.6;
+    font-family: $font-family-content-p;
+}
+
+a {
+    color: var(--link);
+    font-weight: 500;
+    font-size: 90%;
+
+    &:hover {
+        color: var(--link);
+    }
+
+    &:visited {
+        color: var(--link);
+    }
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+.title {
+    line-height: 1.25;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+details {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--block-light);
+    // border-radius: 0.25rem;
+    overflow: hidden;
+
+    & *:not(:first-child) {
+        padding: 0.25rem 1rem 0.25rem 1rem;
+    }
+
+    summary {
+        background-color: var(--block-light);
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: var(--text);
+
+        &:after {
+            // content: "↕"; // ↕
+        }
+    }
+}
+
+> iframe {
+    margin: 10px 0;
+}

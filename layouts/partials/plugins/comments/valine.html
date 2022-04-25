@@ -1,0 +1,27 @@
+<style>
+#vcomments .info,.vsys, .vlink, .at,.vcontent > a[href^="#"],.vcopy, .vpower{display: none !important;}
+#vcomments{color: var(--text);}
+.v .vlist .vcard{padding-top: 0 !important;}
+.v code, .v pre{font-size:100% !important;}
+.vinput{border:none !important;}
+.vheader{border-bottom: 1px dashed var(--border-divide) !important;}
+.v[data-class=v] .vwrap{border: 1px solid var(--border-divide) !important;}
+</style>
+<section class="section-content unselectable">
+    <div id="vcomments"  class="container"></div>
+</section>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+            el:'#vcomments',
+            lang:'{{.Site.Language.Lang}}',
+            appId:'{{ .Site.Params.comments.valine.appId }}',
+            appKey:'{{ .Site.Params.comments.valine.appKey }}',
+            notify:false,
+            verify:false,
+            avatar:'hide',
+            visitor:false,
+            recordIP:false,
+            placeholder: '{{T "valine-input-placeholder"}}'
+        });
+</script>

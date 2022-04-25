@@ -1,0 +1,30 @@
+{{ partial "pages/section-content" .}}
+
+{{- $termName := .Data.Singular -}}
+{{- $terms := .Data.Terms.ByCount -}}
+{{- $length := len $terms -}}
+{{- $type := .Type -}}
+<script type="text/javascript" src="{{ .Site.Data.hey.cdn.js.tags_cloud | absURL}}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+            var words = [
+                    {{- range $tagName, $taxonomy := $.Site.Taxonomies.tags -}}
+                        {{- $currentTagCount := len $taxonomy.Pages -}}
+                    {{- with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $tagName) -}}
+                        { text: '{{$tagName}}', weight: {{$currentTagCount}}, link:'{{ .Permalink | safeHTML }}' },
+                {{- end -}}
+                {{- end -}}
+                ];
+            $("#tags-cloud").jQCloud(words, {
+                    autoResize: true,
+                    encodeURI: false,
+                    fontSize: {
+                            {{- if gt $length 15 -}}
+                                from: {{div 3.0 $length}},to:{{div 1.0 $length}}
+                        {{- else -}}
+                                from:0.09,to:0.03
+                        {{- end -}}
+                        }
+                });
+        });
+</script>

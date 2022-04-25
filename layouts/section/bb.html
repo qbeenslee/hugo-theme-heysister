@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <div class="horizontal-safe vertical-safe">
+        <div class="small-container">
+            {{ partial "pages/section-content" .}}
+            {{ $page_cond_hidden := where .Pages "Params.hidden" "ne" true }}
+            {{ $paginator := .Paginate ( $page_cond_hidden ) }}
+            {{ range $index, $page := $paginator.Pages }}
+                {{ if gt $index  0 }}<hr/>{{end}}
+                    <article>
+                        <div class="article-summary">
+                            <a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a>
+                            {{ if .Draft }} ::Draft{{ end }}<span class="subtitle">{{ .Date.Format (T "index-date-format")}}</span>
+                            </div>
+                            <a href="{{ .Permalink }}">{{ .Content }}</a>
+                    </article>
+                {{ end }}
+        </div>
+    </div>
+    {{ partial "pages/paginator" . }}
+{{ end }}
+
+
+{{ define "main-tag" }}class="small-bb"{{ end }}
+
+{{ define "footer" }}<!-- nothing -->{{ end }}

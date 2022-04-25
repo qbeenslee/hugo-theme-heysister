@@ -1,0 +1,31 @@
+{{- partial "etc/init" . -}}
+{{- $cachedDataMode := partial "variable/dataMode" . -}}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}{{ with $cachedDataMode }} data-mode="{{.}}"{{ end }}>
+    <head>
+        {{ block "header" . }}
+            {{ partial "page/header" . }}
+        {{ end }}
+    </head>
+    <body {{ block "body-tag" . }}style="background-color:{{ if .Params.bodyColor }}{{.Params.bodyColor | safeCSS}}{{ else if .Params.banner }}#DDDDDD{{ else }}white{{ end }};"{{ end }}>
+        {{ block "navigator" . }}
+            {{ partial "plugins/navigation" . }}
+        {{ end }}
+        <main {{block "main-tag" . }}class="{{ partial "variable/pageType" . }}"{{ end }}>
+            {{ partial "plugins/banner" . }}
+            {{ block "test" . }}{{ end }}
+                <div id="page">
+                    {{ block "main" . }}
+                        <!--default empty -->
+                    {{ end }}
+                </div>
+        </main>
+        {{ block "footer" . }}
+            {{ partialCached "page/footer" . }}
+        {{ end }}
+        {{ partial "plugins/photoPopup" . }}
+        {{ block "footer-scripts" . }}
+            {{ partial "page/footer-scripts" . }}
+        {{ end }}
+    </body>
+</html>

@@ -1,0 +1,113 @@
+$color_chicago_approx: #595959;
+$color_gray_nurse_approx: #eaeaea;
+
+.content-toc-box {
+    z-index: 1000;
+    min-width: 200px;
+    margin: 36px;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    font-family: $font-family-toc;
+    position: fixed;
+    top: 60px;
+
+    .node-h1 {
+        padding-left: 0;
+    }
+
+    .node-h2 {
+        padding-left: 0.5em;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            left: -2px;
+            width: 2px;
+            height: 8px;
+        }
+
+        a {
+            font-weight: 900;
+        }
+    }
+
+    .node-h3 {
+        padding-left: 2.4em;
+    }
+
+    .node-h4 {
+        padding-left: 3.6em;
+    }
+
+    .node-h5 {
+        padding-left: 4.8em;
+    }
+
+    .node-h6 {
+        padding-left: 6.4em;
+    }
+
+    ul {
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    li {
+        padding: 3px 10px 3px 6px;
+        border-left: 2px solid var(--block-light);
+        color: $color_chicago_approx;
+        position: relative;
+        z-index: 1000;
+
+        &:hover {
+            border-left: 2px solid $color_vista_blue_approx;
+        }
+    }
+
+    a {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color_chicago_approx;
+    }
+
+    .active {
+        color: $color_anchor;
+        border-bottom-color: $color_anchor;
+
+        > a {
+            color: $color_anchor;
+            border-bottom-color: $color_anchor;
+
+            &:hover {
+                color: $color_anchor;
+                border-bottom-color: $color_anchor;
+            }
+        }
+    }
+
+    li[class~="active"] {
+        border-left: 2px solid $color_anchor;
+    }
+}
+
+@media screen and(max-width: $size_x_large_max) {
+    .content-toc-box {
+        display: none;
+    }
+}
+
+.content-toc {
+    max-height: 100%;
+    left: auto;
+    width: 200px;
+    overflow: auto;
+
+    > .wrap {
+        width: 100%;
+        overflow: auto;
+    }
+}

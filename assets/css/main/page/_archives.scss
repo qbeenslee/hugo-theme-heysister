@@ -1,0 +1,87 @@
+.article-archives {
+    font-family: $font-family-toc;
+    color: var(--text);
+    padding: 0.4rem;
+
+    .archives-tree {
+        list-style-type: none;
+
+        .archives-node {
+            border-left: 1px dashed var(--border-clear);
+            padding: 4px 10px 4px 10px;
+            position: relative;
+            line-height: 1.6rem;
+
+            &.counter {
+                border: none;
+                padding: 0;
+                margin-left: -0.4rem;
+                color: var(--text-secondary);
+                font-style: italic;
+                font-size: 1.1rem;
+                strong {
+                    color: var(--text-suammary);
+                }
+            }
+
+            &.year {
+                display: block;
+                padding: 3rem 0.5rem 1rem 2rem;
+                font-size: 2rem;
+                font-family: $font-family-title;
+                line-height: 1.6rem;
+                &::before {
+                    color: var(--text-content);
+                    content: "⬤";
+                    position: absolute;
+                    font-size: 9px;
+                    left: -6px;
+                    top: 3.1rem;
+                }
+                p {
+                    font-family: inherit;
+                }
+            }
+
+            &.article {
+                padding-bottom: 0.8rem;
+
+                .article-title {
+                    font-family: $font-family-title;
+                }
+                a {
+                    font-family: inherit;
+                    &:hover {
+                        color: var(--anchor);
+                    }
+                    &:visited {
+                        color: var(--text);
+                    }
+                }
+
+                time {
+                    display: inline-block;
+                    color: var(--text-secondary);
+                    overflow: hidden;
+                    width: auto;
+                    min-width: 3.5rem;
+                    font-size: 0.8rem;
+                    vertical-align: top;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    -webkit-text-overflow: ellipsis;
+                }
+            }
+
+            &.empty {
+                padding: 2rem;
+                border-left: 1px dashed var(--text-secondary);
+            }
+        }
+        @media screen and(max-width: $size_medium_max) {
+            .archives-node {
+                border-left: 1px dashed var(--border-clear);
+            }
+        }
+    }
+}

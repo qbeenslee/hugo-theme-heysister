@@ -1,0 +1,17 @@
+{{- if .Site.Params.layout.title.uppercase -}}
+    {{- if (eq .Kind "section") | or (eq .Kind "taxonomy") | or (eq .Kind "home") | or (eq .Kind "term") -}}
+        {{- if eq .Site.Params.layout.title.uppercaseScope "page" -}}
+            {{false}}
+        {{- else -}}
+            {{true}}
+        {{- end -}}
+    {{- else -}}
+        {{- if eq .Site.Params.layout.title.uppercaseScope "index" -}}
+            {{false}}
+        {{- else -}}
+            {{true}}
+        {{- end -}}
+    {{- end -}}
+{{- else -}}
+    {{false}}
+{{- end -}}

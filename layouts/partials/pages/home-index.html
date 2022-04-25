@@ -1,0 +1,38 @@
+{{- $context := . -}}
+{{- $regPages := .Site.RegularPages -}}
+{{- $pages := $regPages | intersect (where $regPages "Params.hidden" "ne" true) -}}
+
+{{- $sections := slice "hide" -}}
+{{- if .Site.Params.layout.ExcludeSections -}}
+    {{- range $item := (.Site.Params.layout.ExcludeSections) -}}
+        {{- $sections = $sections | append $item -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $pages := $pages | intersect (where $pages "Section" "not in" $sections) | intersect (where $pages "Title" "ne" "") -}}
+
+{{- $paginator := .Paginate $pages -}}
+
+{{- $listStyle :=.Site.Params.Layout.listStyle -}}
+{{- $listStyleName :=cond (and ( and (ne $listStyle "list") (ne $listStyle "list-thumbnail")) (ne $listStyle "card")) "list" .Site.Params.Layout.listStyle -}}
+
+<div class="{{ if .Params.banner }}top-safe-covered{{ else }}top-safe{{ end  }} {{ cond (eq .Site.Params.Layout.listStyle "list") "horizontal-safe" "" }}">
+    <div class="articles {{ $listStyleName }}">
+        <div class="articles-wrap">
+            {{- range $pageOne := $paginator.Pages -}}
+                {{- if .Title  -}}
+                    {{- $args := (dict "context" $context "current" .) -}}
+                    {{- if eq .Site.Params.Layout.listStyle "list" -}}
+                        {{ partial "pages/home-index-list" $args }}
+                    {{- else if eq  .Site.Params.Layout.listStyle "list-thumbnail" -}}
+                        {{ partial "pages/home-index-list-thumbnail" $args }}
+                    {{- else if eq  .Site.Params.Layout.listStyle "card" -}}
+                        {{ partial "pages/home-index-card" $args }}
+                    {{- else -}}
+                        {{ partial "pages/home-index-list" $args }}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+        </div>
+    </div>
+</div>

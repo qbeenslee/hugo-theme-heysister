@@ -1,0 +1,5 @@
+{{- if .Date -}}
+    {{ .Date.Format  (T "article-date-simple-format") }}
+{{- else -}}
+    {{ "" }}
+{{- end -}}

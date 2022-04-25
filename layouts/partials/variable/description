@@ -1,0 +1,16 @@
+{{- $limited := .Site.Params.layout.summaryLength | default 600 -}}
+{{- $limited := cond (eq $limited 0) 600 $limited -}}
+{{- with .Description -}}
+    {{- $result := . | plainify | replaceRE "^\\s+|\\s+$|\\n+|\\s{2,}" "" -}}
+    {{ substr $result 0 $limited }}
+{{- else -}}
+    {{- if .IsPage -}}
+        {{- $result := .Summary | plainify | replaceRE "^\\s+|\\s+$|\\n+|\\s{2,}" "" -}}
+        {{ substr $result 0 $limited }}
+    {{- else -}}
+        {{- with .Site.Params.Info.description -}}
+            {{- $result := . | plainify | replaceRE "^\\s+|\\s+$|\\n+|\\s{2,}" "" -}}
+            {{ substr $result 0 $limited }}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

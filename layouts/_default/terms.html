@@ -1,0 +1,35 @@
+{{ define "header" }}
+    {{ partial "page/header" . }}
+    {{ if and $.Site.Taxonomies.tags (eq .Data.Singular "tag") }}
+        <link rel="stylesheet" type="text/css" href="{{ .Site.Data.hey.cdn.css.tags_cloud | absURL }}">
+    {{ end }}
+{{ end }}
+
+
+{{ define "main" }}
+    <div class="horizontal-safe {{ if .Params.banner }}vertical-safe-covered{{ else }}vertical-safe{{ end  }}">
+        {{- if and $.Site.Taxonomies.tags (eq .Data.Singular "tag") -}}
+            <!-- Tag cloud Page -->
+            <div class="tags-cloud-wrapper">
+                <center>
+                    <div id="tags-cloud" style="max-width:680px; min-height: 20rem;"></div>
+                </center>
+            </div>
+        {{- else if and $.Site.Taxonomies.tags (eq .Data.Singular "archive") -}}
+            <!-- Archives page -->
+            {{ partial "pages/taxonomy-archives" . }}
+        {{- else -}}
+            <!-- Categories Page -->
+            {{ partial "pages/taxonomy-categories" . }}
+        {{- end -}}
+    </div>
+{{ end }}
+
+
+{{ define "footer-scripts"}}
+    {{ partial "page/footer-scripts" . }}
+    {{ if and $.Site.Taxonomies.tags (eq .Data.Singular "tag") }}
+        <!-- Tag cloud Page -->
+        {{ partial "pages/taxonomy-tags" . }}
+    {{ end }}
+{{ end }}

@@ -1,0 +1,27 @@
+.four-zero-four {
+    .title404 {
+        font-size: 15rem;
+        font-family: $font-family-title;
+        background-color: var(--reverse);
+        color: var(--similar);
+        max-width: 30rem;
+        max-height: 25rem;
+        text-align: center;
+        margin: auto;
+        display: block;
+    }
+
+    .button {
+        margin-top: 2rem;
+        min-width: 8rem;
+        min-height: 2.5rem;
+        border-radius: 6rem;
+        border-color: #bababa;
+        border-width: 1px;
+        // box-shadow: 1px 1px 5px #bababa;
+
+        &:hover {
+            box-shadow: 1px 2px 5px #bababa;
+        }
+    }
+}

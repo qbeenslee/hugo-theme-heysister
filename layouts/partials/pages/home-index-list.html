@@ -1,0 +1,11 @@
+{{- $shouldUppercase := partial "variable/shouldUppercase" .context -}}
+<article class="home-list-normal">
+    <h1 class="title"><a href="{{ .current.Permalink }}">{{ cond (eq $shouldUppercase "true") (.current.Title | upper) .current.Title }}</a>{{ if .current.Draft }} ::Draft{{ end }}</h1>
+    {{- with .current.Date -}}
+        <p class="subtitle">{{ .Format (T "index-date-format")}}</p>
+    {{- end -}}
+    <div class="summary">
+        <p>{{ partial "variable/summary" .current }}</p>
+    </div>
+</article>
+

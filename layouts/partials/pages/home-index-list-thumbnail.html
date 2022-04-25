@@ -1,0 +1,39 @@
+{{ $articleThumbnail:= partial "variable/thumbnail" .current }}
+
+<article class="home-list-card">
+    <div class="article-card">
+        <div class="article-card-wrapper">
+            <div class="card-box">
+                <div class="card-image">
+                    <a href="{{ .current.Permalink }}">
+                        {{- if (hasPrefix $articleThumbnail "http") -}}
+                            <img src="{{ $articleThumbnail | safeHTML}}" />
+                        {{- else if (hasPrefix .current.Params.banner "linear-gradient") -}}
+                            <div class="card-color-image" style="height: 100.9%;width: 100.9%;background-image: {{ .current.Params.banner | safeCSS }};"></div>
+                        {{- else if or (hasPrefix .current.Params.banner "rgb") (hasPrefix .current.Params.banner "#") -}}
+                            <div class="card-color-image" style="height: 100.9%;width: 100.9%;background: {{ .current.Params.banner | safeCSS }};"></div>
+                        {{- else -}}
+                            {{ $randomColor := index (shuffle .current.Site.Data.hey.color.thumbnails) 1}}
+                            {{- $thumbnailTitle := (partial "variable/thumbnailTitle" .current) | upper -}}
+                            {{- $thumbnailTitleCSS := cond (gt (len $thumbnailTitle) 6) "thumbnail-s" "thumbnail-n" -}}
+                            <div class="card-color-image" style="height: 100.9%;width: 100.9%;background-image:{{ $randomColor | safeCSS }} ;">
+                                <span class="card-color-thumbnail-title {{ $thumbnailTitleCSS }}">{{ $thumbnailTitle }}</span>
+                            </div>
+                        {{- end -}}
+                    </a>
+                    <div class="card-image-bottom mobile-card">
+                        <span>{{ .Date.Format (T "index-date-format")}}</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <a href="{{ .current.Permalink }}">
+                        {{- $shouldUppercase := partial "variable/shouldUppercase" .context -}}
+                        <p class="card-title" href="{{ .current.Permalink }}">{{ cond (eq $shouldUppercase "true") (.current.Title | upper) .current.Title }}</p>
+                        <p class="card-summary">{{ partial "variable/summary" .current }}</p>
+                    </a>
+                    <p class="card-time-desc">{{ .Date.Format (T "index-date-format")}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

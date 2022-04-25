@@ -1,0 +1,3 @@
+{{- if and .Params.banner (hasPrefix .Params.banner "http") -}}
+    <link rel="preload" as="image" href="{{ .Params.banner }}" />
+{{- end -}}

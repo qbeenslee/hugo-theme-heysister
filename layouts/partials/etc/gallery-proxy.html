@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" {{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+    {{ partial "page/header" . }}
+    <body>
+        {{/*}}{{ partial "plugins/navigation" . }}{{*/}}
+        <main>
+            <div class="horizontal-safe vertical-safe">
+                <div class="content">
+                    {{ .Scratch.Get "content"}}
+                </div>
+            </div>
+        </main>
+        {{ partial "plugins/photoPopup" . }}
+        {{ partial "page/footer-scripts" . }}
+    </body>
+</html>

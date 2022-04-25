@@ -1,0 +1,18 @@
+{{- if hasPrefix .Site.LanguageCode "zh" -}}
+    {{- $limited := .Site.Params.layout.summaryLength | default 600 -}}
+    {{- $limited := cond (eq $limited 0) 600 $limited -}}
+    {{- with .Summary -}}
+        {{- $summary :=  . | plainify | safeHTML | htmlUnescape -}}
+        {{ substr $summary 0 $limited }}
+    {{- end -}}
+{{- else -}}
+        {{- $summary := .Summary | plainify | safeHTML | htmlUnescape -}}
+        {{- if eq .Site.Params.Layout.listStyle "list" -}}
+            {{ $summary }}
+        {{- else if gt (len $summary) 180 -}}
+            {{- $content := substr $summary 0 180 -}}
+            {{ printf "%s..." $content }}
+        {{- else -}}
+            {{ substr $summary 0 210 }}
+        {{- end -}}
+{{- end -}}

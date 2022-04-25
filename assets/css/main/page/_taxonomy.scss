@@ -1,0 +1,55 @@
+.article-taxonomy,
+.taxonomyTerm .taxonomy {
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+
+    > .name {
+        font-size: 1.5rem;
+        color: var(--text-title);
+
+        > a {
+            color: inherit;
+            font-weight: 700;
+        }
+    }
+
+    > article {
+        line-height: 2rem;
+        padding-bottom: 0.8rem;
+
+        .article-title {
+            font-weight: 500;
+        }
+
+        .time {
+            display: inline-block;
+            color: var(--text-secondary);
+            overflow: hidden;
+            width: auto;
+            min-width: 6.2rem;
+            font-size: 0.8rem;
+            vertical-align: top;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis;
+        }
+
+        .link {
+            color: var(--text-title);
+            font-size: 1rem;
+            font-family: $font_athelas, $font_hiragino_sans_gb, $font_st_heiti, $font_microsoft_yahei, $font_wenquanyi_micro_hei, $font_sim_sun, $font_sans_serif, $font_serif;
+
+            &:hover {
+                color: var(--anchor);
+            }
+            &:visited {
+                color: var(--text);
+            }
+        }
+    }
+
+    .more {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,10 @@
+{{- if hasPrefix .Params.banner "http" -}}
+    {{ .Params.banner }}
+{{- else if in .Content "<img" -}}
+    {{- $result0 := findRE "<img(.*?)src=\"([^\"]*?)\"" .Content 1 -}}
+    {{- $result1 := index $result0 0 -}}
+    {{- $result2 := findRE "http([^\"]*)" $result1 1 -}}
+    {{ index $result2 0 }}
+{{- else -}}
+    {{"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="}}
+{{- end -}}

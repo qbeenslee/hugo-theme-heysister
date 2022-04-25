@@ -1,0 +1,131 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-height: 1.25;
+    color: var(--text-title);
+    font-weight: 700;
+    font-family: $font-family-content-h;
+
+    + div {
+        margin-top: 0.5rem;
+    }
+}
+div:not([class~="content"]) {
+    > h1,
+    > h2 {
+        font-weight: 600;
+    }
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        font-weight: 400;
+    }
+}
+
+* {
+    + h2,
+    + h3 {
+        margin-top: 2.75rem;
+    }
+
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: 2rem;
+    }
+}
+
+hr {
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: 0;
+    }
+}
+
+h1 {
+    font-size: 4rem;
+
+    + h2 {
+        margin-top: 1.5rem;
+    }
+
+    + * {
+        margin-top: 1.25rem;
+    }
+}
+
+h2 {
+    font-size: 1.6rem;
+
+    + h3 {
+        margin-top: 1.5rem;
+    }
+
+    + * {
+        margin-top: 1rem;
+    }
+}
+
+h3 {
+    font-size: 1.4rem;
+
+    + h4 {
+        margin-top: 1.5rem;
+    }
+
+    + * {
+        margin-top: 0.625rem;
+    }
+}
+
+h4 {
+    font-size: 1.2rem;
+
+    + h5 {
+        margin-top: 1.5rem;
+    }
+
+    + * {
+        margin-top: 0.625rem;
+    }
+}
+
+h5 {
+    font-size: 1.1rem;
+
+    + h6 {
+        margin-top: 1.5rem;
+    }
+
+    + * {
+        margin-top: 0.625rem;
+    }
+}
+
+h6 {
+    font-size: 1rem;
+
+    + * {
+        margin-top: 0.625rem;
+    }
+}
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+    color: $color_bombay_approx;
+    font-weight: 700;
+}

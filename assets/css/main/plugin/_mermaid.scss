@@ -1,0 +1,38 @@
+#page {
+    .mermaid {
+        .messageLine0 {
+            stroke: var(--text-content) !important;
+        }
+        .messageLine1,
+        .actor-line {
+            stroke: var(--text-suammary) !important;
+        }
+        tspan {
+            fill: var(--text) !important;
+        }
+        // .loopText,
+        .labelText,
+        .actor,
+        .noteText {
+            tspan {
+                fill: black !important;
+            }
+        }
+        .titleText,
+        .messageText,
+        #sequencenumber,
+        .marker,
+        .marker.cross {
+            fill: var(--text-title) !important;
+            stroke: var(--text-title) !important;
+        }
+        text,
+        #arrowhead path {
+            fill: var(--text-content) !important;
+            stroke: var(--text-content) !important;
+        }
+        .edgePath path {
+            stroke: var(--text-content) !important;
+        }
+    }
+}

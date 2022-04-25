@@ -1,0 +1,78 @@
+# article
+- id: prev
+  translation: Prev
+
+- id: next
+  translation: Next
+
+- id: article-author
+  translation: Author
+
+- id: article-copyright-license
+  translation: copyright
+
+- id: four0four-return-homepage
+  translation: return homepage
+
+- id: read-more
+  translation: Read More
+
+- id: title-404
+  translation: 404 Page not found
+
+- id: title-tag
+  translation: Tags
+
+- id: title-categories
+  translation: Categories
+
+- id: minute-read
+  one: " minute read"
+  other: " minutes read"
+
+#Format
+- id: article-date-simple-format
+  translation: Jan 2, 2006
+
+- id: article-date-format
+  translation: Created on Jan 2, 2006
+
+- id: index-date-format
+  translation: Jan 2, 2006
+
+- id: index-month-day-format
+  translation: <strong>Jan</strong> 2
+
+- id: archives-counter-format
+  zero: "Oops! Is empty."
+  other: "Great! There are currently <strong>{{.Count}}</strong> articles in total, keep working hard."
+
+#Plugins
+- id: valine-input-placeholder
+  translation: Just Go Go!
+
+- id: livere-noscript
+  translation: Please enable JavaScript!
+
+- id: tag
+  one: tag
+  other: tags
+
+- id: category
+  one: category
+  ohter: categories
+
+- id: tags-cloud
+  translation: Tags Cloud
+
+- id: search
+  translation: search
+
+- id: darkmode
+  translation: dark mode
+
+- id: capture
+  translation: save as image
+
+- id: seeAlso
+  translation: see also

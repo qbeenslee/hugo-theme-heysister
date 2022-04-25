@@ -1,0 +1,7 @@
+{{- $scratch := newScratch -}}
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Type" "not in"  (slice "page" "json") -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "url" .Permalink "section" (i18n (.Site.GetPage "section" .Section | title)) "tags" (partial "variable/tagsStr" .) "categories" (partial "variable/categoriesStr" .)  "description" (partial "variable/summary" .) "tip" (partial "variable/dateTime" .)  "image" (partial "variable/thumbnail" .) ) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}
+{{- $.Scratch.Delete "index" -}}

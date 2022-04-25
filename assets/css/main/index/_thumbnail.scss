@@ -1,0 +1,215 @@
+.articles.list-thumbnail {
+    @include horizontal-safe;
+
+    .article-card {
+        margin-bottom: 1rem;
+
+        .article-card-wrapper {
+        }
+
+        .card-box {
+            @include unselectable;
+            @include flexbox;
+            max-width: $size_page_max_content_width;
+            background: var(--block-card);
+            transition: background-color 1s ease;
+            width: 100%;
+            .card-image {
+                width: 40%;
+                padding-top: 22%;
+                overflow: hidden;
+                position: relative;
+                @include transition(all 0.2s ease-out);
+                -webkit-backface-visibility: hidden;
+                //background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
+                //background: linear-gradient(180deg, transparent, #000);
+
+                .card-color-image,
+                img {
+                    @include flexbox;
+                    @include align-items(center);
+                    @include justify-content(center);
+                    object-fit: cover;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                    min-width: 100%;
+                    width: auto;
+                    height: 100%;
+                    @include transition(width 0.2s ease-out, height 0.2s ease-out);
+                }
+                .card-color-thumbnail-title {
+                    color: #fff;
+                    font-weight: 900;
+                }
+                .thumbnail-n {
+                    font-size: 4rem;
+                }
+                .thumbnail-s {
+                    font-size: 3rem;
+                }
+            }
+
+            .card-content {
+                width: 60%;
+                padding: 1rem;
+                @include flexbox;
+                @include flex-direction(column);
+                @include transition(all 0.2s ease-out);
+                @include box-sizing(border-box);
+                @include justify-content(space-between);
+
+                .card-title {
+                    color: var(--text-title);
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    font-family: $font-family-title;
+                    height: 4rem;
+                    margin-bottom: 1rem;
+                    line-height: 1.4;
+                    text-align: left;
+
+                    &:visited,
+                    &:hover {
+                        color: var(--text-title);
+                    }
+                }
+
+                .card-summary {
+                    color: var(--text-suammary);
+                    font-size: 0.95rem;
+                }
+
+                .card-time-desc {
+                    @include flexbox;
+                    @include align-items(center);
+                    color: var(--text-secondary);
+                    font-size: 0.85rem;
+                }
+            }
+        }
+        .mobile-card {
+            display: none;
+        }
+    }
+
+    //窄屏幕
+    @media screen and (max-width: $size_medium_max) {
+        .article-card {
+            margin-bottom: 0.75rem;
+            .article-card-wrapper {
+            }
+
+            .card-box {
+                width: 100%;
+                position: relative;
+                @include flex-direction(column);
+                padding: 0;
+                box-sizing: border-box;
+
+                .card-image {
+                    width: 100%;
+                    padding-top: 49.9%;
+                    overflow: hidden;
+                    -webkit-backface-visibility: hidden;
+                    img {
+                    }
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        content: "";
+                        //background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000000aa));
+                        //background: linear-gradient(180deg, transparent, #000000aa);
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .card-content {
+                    width: auto;
+                    z-index: 2;
+                    padding: 11px;
+                    @include flex(1);
+                    .card-title {
+                        font-size: 1.2rem;
+                        height: 3rem;
+                        margin-bottom: 0;
+                    }
+
+                    .card-time-desc {
+                        display: none;
+                    }
+                }
+            }
+            .mobile-card {
+                @include flexbox;
+                position: absolute;
+                padding: 0;
+                right: 1rem;
+                bottom: 1rem;
+                color: #ffffff90;
+                z-index: 5;
+                text-shadow: 0.1em 0.1em 0.2em #000;
+            }
+        }
+    }
+
+    //宽屏幕
+    @media screen and (min-width: $size_medium_min) {
+        .article-card {
+            &:hover {
+                .card-image {
+                    cursor: pointer;
+                    width: 390px;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0, 0, 0, 0.1);
+                        pointer-events: none;
+                    }
+
+                    img {
+                        height: 110%;
+                    }
+                }
+                .card-content {
+                    @include transform(translateX(-10px));
+                    .card-title {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .article-card-wrapper {
+            }
+
+            .card-box {
+                border-radius: 0.3rem;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+                .card-image {
+                    border-bottom-left-radius: 0.3rem;
+                    border-top-left-radius: 0.3rem;
+                    img {
+                    }
+                }
+
+                .card-content {
+                    .card-title {
+                    }
+
+                    .card-time-desc {
+                    }
+                }
+            }
+        }
+    }
+}
