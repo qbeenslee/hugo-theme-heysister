@@ -23,7 +23,7 @@
 
 ## 更新
 
-更多更新细节, 查看 [changlog](CHANGELOG.md)
+更多更新细节, 查看 [changelog](CHANGELOG.md)
 
 ## License
 
