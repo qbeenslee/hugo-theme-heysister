@@ -47,7 +47,7 @@
                     {{- if .Params.bannerTitle -}}
                         <div class="title-wrap unselectable">
                             {{- $shouldUppercase := partial "variable/shouldUppercase" . -}}
-                            <span class="title selectable" style="color:{{$bannerTitleColor | safeCSS}};">{{ cond (eq $shouldUppercase "true") (.Params.bannerTitle | upper) .Params.bannerTitle }}</span>
+                            <span class="title" style="color:{{$bannerTitleColor | safeCSS}};">{{ cond (eq $shouldUppercase "true") (.Params.bannerTitle | upper) .Params.bannerTitle }}</span>
                             {{- with .Params.bannerTitleReference -}}
                                 <sup class="reference">
                                     <a href="{{.}}" target="_blank">

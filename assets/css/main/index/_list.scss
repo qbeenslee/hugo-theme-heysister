@@ -12,54 +12,56 @@ article[class="home-list-normal"] {
 
 .section-index,
 .home-index,
-.article-header {
-    .title {
-        font-size: 2rem;
-        font-family: $font-family-title;
-        margin: 5px 0;
-        color: var(--text-title);
-        font-weight: 700;
-        @include word-wrap(break-word);
-        text-decoration: none;
-        font-size: 1.75rem;
-
-        a {
-            text-decoration: none;
+.page {
+    article {
+        .title {
+            font-size: 2rem;
+            font-family: $font-family-title;
+            margin: 5px 0;
             color: var(--text-title);
             font-weight: 700;
+            @include word-wrap(break-word);
+            text-decoration: none;
+            font-size: 1.75rem;
 
-            &:visited {
+            a {
+                text-decoration: none;
                 color: var(--text-title);
+                font-weight: 700;
+
+                &:visited {
+                    color: var(--text-title);
+                }
+            }
+
+            span {
+                font-weight: 300;
+            }
+
+            strong {
+                font-weight: 500;
+                color: inherit;
             }
         }
 
-        span {
+        .subtitle {
             font-weight: 300;
-        }
+            @include word-wrap(break-word);
+            line-height: 1.5;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
 
-        strong {
-            font-weight: 500;
-            color: inherit;
-        }
-    }
+            em {
+                font-weight: 300;
+            }
 
-    .subtitle {
-        font-weight: 300;
-        @include word-wrap(break-word);
-        line-height: 1.5;
-        font-size: 0.875rem;
-        color: var(--text-secondary);
+            span {
+                font-weight: 300;
+            }
 
-        em {
-            font-weight: 300;
-        }
-
-        span {
-            font-weight: 300;
-        }
-
-        strong {
-            font-weight: 500;
+            strong {
+                font-weight: 500;
+            }
         }
     }
 }

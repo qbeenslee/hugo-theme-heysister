@@ -1,7 +1,7 @@
 - 入门  
     - [Heysister](README.md)
     - [快速搭建](quick-start.md)
-    - [更新](changlog.md)
+    - [更新](CHANGELOG.md)
 - 定制化
     - [黑暗模式(DarkMode)](customize/darkmode.md)
     - [Banner](customize/banner.md)

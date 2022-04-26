@@ -9,8 +9,9 @@
 
 在你的博客根目录下执行
 
-> sh
-> git clone https://github.com/qbeenslee/hugo-theme-heysister themes/heysister
+``` sh
+ git clone https://github.com/qbeenslee/hugo-theme-heysister themes/heysister
+```
 
 ## 示例站点
 
