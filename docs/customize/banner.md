@@ -29,8 +29,10 @@ bannerHeight: "small"
 bannerTitle: "技术说明"
 ---
 ```
+## 配置
 
-## 使用范围
+### 使用
+
 在md(markdown)文件的前言部分([Front Matter](https://gohugo.io/content-management/front-matter/))中定义, 只要是受markdown文件控制页面都可以使用
  
 | 范围     | 首页(home)  | 文章列表(section) | 文章(page)                | 标签(taxonomy)   | 标签列表(term)           |
@@ -39,7 +41,7 @@ bannerTitle: "技术说明"
 
 >  [`_index.md`](https://gohugo.io/content-management/organization/#index-pages-_indexmd) 在hugo中扮演着特殊的用处, 可以为[列表(list templates)](https://gohugo.io/templates/lists/)模板添加内容和参数定义 
 
-## 参数
+### 参数
 
 ### banner
 

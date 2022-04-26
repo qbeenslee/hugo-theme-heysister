@@ -17,8 +17,8 @@
 
 [qbeenslee.com](https://qbeenslee.com)
 
-<img src="https://qbeenslee-1259354687.cos.ap-shanghai.myqcloud.com/2022/04/qbeensleehomepage.png">
-<img src="https://qbeenslee-1259354687.cos.ap-shanghai.myqcloud.com/2022/04/qbeensleearticle.png">
+<img src="https://raw.githubusercontent.com/qbeenslee/CDN/master/screenshot/2022/04-27/050638ecb-qbeenslee.homepage.png">
+<img src="https://raw.githubusercontent.com/qbeenslee/CDN/master/screenshot/2022/04-27/050657c07-qbeenslee-article.png">
 
 
 ## 更新
