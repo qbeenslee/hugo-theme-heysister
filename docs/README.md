@@ -27,4 +27,4 @@
 
 ## License
 
-[Mulan PSL v1](http://license.coscl.org.cn/MulanPSL) @qbeenslee 2019
+[Mulan PSL v2](http://license.coscl.org.cn/MulanPSL2/index.html) @qbeenslee 2022
