@@ -9,7 +9,7 @@
     "photoswipe": "https://cdn.bootcdn.net/ajax/libs/photoswipe/4.1.3/photoswipe.min.js",
     "photoswipe_ui_default": "https://cdn.bootcdn.net/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js",
     "scrollspy": "/js/scrollspy.js",
-    "jquery_smooth_scroll": "https://cdn.bootcdn.net/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js",
+    "jquery_smooth_scroll": "https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js",
     "load_echarts": "/js/load-echarts.js",
     "echarts": "https://cdn.bootcdn.net/ajax/libs/echarts/5.1.0/echarts.min.js",
     "tags_cloud":"/js/jqcloud.js",

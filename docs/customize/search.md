@@ -6,7 +6,7 @@
 
 ## 配置
 
-在网站配置文件 [`config.toml`](https://gohugo.io/getting-started/configuration/) 中开启
+在 [`config.toml`](https://gohugo.io/getting-started/configuration/) 文件中设置
 
 ``` yaml
 [outputs]

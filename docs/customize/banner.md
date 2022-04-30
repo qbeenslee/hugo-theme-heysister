@@ -29,6 +29,8 @@ bannerHeight: "small"
 bannerTitle: "技术说明"
 ---
 ```
+----
+
 ## 配置
 
 ### 使用

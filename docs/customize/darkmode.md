@@ -8,7 +8,7 @@
 
 ## 全局配置
 
-在网站配置文件 [`config.toml`](https://gohugo.io/getting-started/configuration/) 中开启全局开关
+在 [`config.toml`](https://gohugo.io/getting-started/configuration/) 文件中配置 全局开关
 
 ``` yaml
 [params.plugins]

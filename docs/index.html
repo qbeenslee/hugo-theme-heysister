@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-cn">
     <head>
         <meta charset="UTF-8">
         <title>Hugo theme Heysiter Document</title>
@@ -21,9 +21,34 @@
                             homepage: '',
                             auto2top: true,
                             el: '#app',
+                            pagination: {
+                                            previousText: '上一章节',
+                                            nextText: '下一章节',
+                                            crossChapter: true,
+                                            crossChapterText: true,
+                                        },
+                            copyCode: {
+                                            // buttonText : 'buttonText:String',
+                                            // errorText : 'errorText:String',
+                                            // successText: 'successText:String'
+
+                                            buttonText: {
+                                                            '/': '点击复制',
+                                                        },
+                                            errorText: {
+                                                            '/': '错误',
+                                                        },
+                                            successText: {
+                                                            '/': '复制',
+                                                        }
+                                        }
                         }
         </script>
         <!-- Docsify v4 -->
         <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+        <script src="https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+        <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
     </body>
 </html>
