@@ -154,11 +154,8 @@ if (window.loadphotoswipejs) {
 var loadphotoswipejs = 1;
 
 $(document).ready(function() {
-    /*
-    Initialise Photoswipe
-    */
-    if(mediumZoom==undefined){
-        return;
+    if(typeof window.mediumZoom === undefined || typeof window.mediumZoom === "undefined"){
+        return true;
     }
     const zoom = mediumZoom();
     zoom.update({ background: '#000C',margin:45})

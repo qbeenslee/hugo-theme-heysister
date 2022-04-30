@@ -6,7 +6,7 @@
 
 ## 配置
 
-> 在markdown文件的前言部分([Front Matter](https://gohugo.io/content-management/front-matter/))中定义
+在markdown文件的前言部分([Front Matter](https://gohugo.io/content-management/front-matter/))中定义
 
 
 ``` yaml
@@ -14,3 +14,5 @@
 toc: true
 ---
 ```
+
+> 需知晓, TOC仅在页面视图窗口大小合适时展示
