@@ -157,7 +157,7 @@ $(document).ready(function() {
     if(typeof window.mediumZoom === undefined || typeof window.mediumZoom === "undefined"){
         return true;
     }
-    const zoom = mediumZoom();
+    var zoom = mediumZoom();
     zoom.update({ background: '#000C',margin:45})
 
     var attachHolder = function() {
