@@ -1,8 +1,10 @@
 {{ define "main" }}
     <div class="horizontal-safe {{ if .Params.banner }}vertical-safe-covered{{ else }}vertical-safe{{ end  }}">
         <div class="container">
-            {{ partial "page/article-header" . }}
-            <div class="content" id="content">{{ .Scratch.Get "content"}}</div>
+            <article>
+                {{ partial "page/article-header" . }}
+                <div class="content" id="content">{{ .Scratch.Get "content"}}</div>
+            </article>
         </div>
         {{partial "plugins/comment" . }}
     </div>
