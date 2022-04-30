@@ -6,6 +6,8 @@
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
+ * https://github.com/Semantic-Org/UI-Search/blob/master/search.js
+ *
  */
 
 (function ($, window, document, undefined) {

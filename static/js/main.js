@@ -239,7 +239,7 @@ function toggleSearch() {
             $.getJSON(source_url, function(data) {
                 $(".search-box").search({
                     source: data,
-                    searchFields: ["title", "description", "date", "tags", "categories"],
+                    searchFields: ["title", "description", "tip", "date", "tags", "categories"],
                     onResultsOpen: function(_this) {
                         setTimeout(function() {
                             $(".search-box").find("img").lazyload();
