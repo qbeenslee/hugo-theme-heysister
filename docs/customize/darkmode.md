@@ -18,7 +18,7 @@ darkmode = true
 > 
 > 该开关可以在 `dark/light` 两种模式下手动切换
 
-## 单页面配置
+## 页面配置
 
 在markdown文件的前言部分([Front Matter](https://gohugo.io/content-management/front-matter/))中定义
 

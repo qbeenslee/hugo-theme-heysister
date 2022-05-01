@@ -3,6 +3,7 @@
     - [快速搭建](quick-start.md)
     - [更新](CHANGELOG.md)
 - 定制化
+    - [版权](customize/copyright.md)
     - [黑暗模式](customize/darkmode.md)
     - [横幅](customize/banner.md)
     - [菜单栏](customize/menu.md)
@@ -13,8 +14,9 @@
     - [数据分析](customize/web-analytics.md)
     - [评论](customize/social-comments.md)
 
-- shortcode
+- shortcodes
     - [banner](shortcodes/banner.md)
     - [fragment](shortcodes/fragment.md)
+    - [tab](shortcodes/tab.md)
     - [map](shortcodes/map.md)
     - [friend](shortcodes/friend.md)

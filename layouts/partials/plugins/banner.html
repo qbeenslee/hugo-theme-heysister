@@ -9,7 +9,7 @@
 
 
 {{- if $diyBanner -}}
-    {{- $diyBackground := index $diyBanner "background" -}}
+    {{- $diyBackground := index $diyBanner "style" -}}
     {{- $diyDataMode := index $diyBanner "mode" -}}
     {{- $diyWrap := index $diyBanner "wrap-content" -}}
     <div id="banner" class="banner {{ .Page.Scratch.Get "bannerHeight" | safeCSS}}">

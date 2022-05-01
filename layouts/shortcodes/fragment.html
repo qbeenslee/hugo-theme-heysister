@@ -28,9 +28,9 @@
 {{- $scopeType := cond (in $types $fullScType) $fullScType "normal" -}}
 <section class="fragment">
     <div class="content{{ if $isFixedMode }} fixed-data-mode{{ end }}"{{ if $isFixedMode }} data-mode="{{ $mode | safeCSS }}"{{ end }}>
-        <div class="fragment-wrap fragment-scope-{{ $scopeType }} flex {{ if $wrapContent }}auto-flex-wrap{{ else }}flex-wrap{{ end }}" style="{{ $style | safeCSS }}">
+        <div class="fragment-wrap fragment-scope-{{ $scopeType }} flex {{ if $wrapContent }}flex-wrap{{ end }}" style="{{ $style | safeCSS }}">
             {{ range split .Inner "<--->" }}
-                <div class="fragment-item {{ if $wrapContent }}flex-auto-fixed{{ else }}flex-auto-wrap{{ end }}">
+                <div class="fragment-item {{ if $wrapContent }}flex-auto-wrap{{ else }}flex-auto-fixed{{ end }}">
                     {{ . | safeHTML | $.Page.RenderString }}
                 </div>
             {{ end }}

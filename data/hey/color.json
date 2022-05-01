@@ -1,5 +1,6 @@
 {
     "thumbnails": [
+        "linear-gradient(to left bottom, hsl(178, 100%, 85%) 0%,hsl(100, 100%, 85%) 100%)",
         "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
         "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
         "linear-gradient(to top, #fad0c4 0%, #fad0c4 1%, #ffd1ff 100%)",
