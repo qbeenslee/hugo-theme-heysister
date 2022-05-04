@@ -18,7 +18,7 @@ hugo new copyright.md
 
 **2.编写**, 在新建的`copyright.md`中编写全站可用的版权文案
 
-> 内容可查考 [`qbeenslee.com/copyright`](https://qbeenslee.com/copyright/)
+> 可参考 [`qbeenslee.com/copyright`](https://qbeenslee.com/copyright/)
 
 ### 全局配置
 

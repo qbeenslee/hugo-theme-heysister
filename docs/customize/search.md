@@ -2,7 +2,7 @@
 
 ## 示例
 
-![](https://raw.githubusercontent.com/qbeenslee/CDN/master/screenshot/2022/04-27/04463962a-20220427044634.png)
+![Search](https://raw.githubusercontent.com/qbeenslee/CDN/master/screenshot/2022/04-27/04463962a-20220427044634.png)
 
 ## 配置
 
@@ -17,8 +17,6 @@ home = ["HTML", "RSS", "JSON"] # 如开启搜索插件, 必不能注释本行配
 search = true
 ```
 
-> 点击右上角的放大镜按钮 即会弹出搜索框
-
 
 **检索范围:**
 
@@ -31,3 +29,17 @@ search = true
 | categories  | 分类     | "记录"                             |                                                                                                              |
 
 
+### 交互
+
+**1.点击**
+
+> 点击右上角的放大镜按钮 即会弹出搜索框
+
+**2.键盘**
+
+`Meta键` + `/` : 弹出搜索框;<br/>
+`Esc键`: 隐藏搜索框;<br/>
+`Down键`: 选择项目;<br/>
+`Enter键`: 选中打开相关页面
+
+> meta键, 在Mac平台是 【⌘】, 在Windows平台是【win】（WinKey）

@@ -6,14 +6,14 @@
 
 ## 配置
 
-> 当使用`banner`shortcode后, md文件的Front Matter中关于bannerde的配置仅剩`bannerHeight`有效
+> 当使用`banner` shortcode后, md文件的Front Matter中关于banner的配置仅剩 `bannerHeight` 有效
 
 ### 参数
 
 #### mode
 
 **定义**: string, 控制文字的颜色模式<br/>
-**取值**: light/dark/black, 默认为light
+**取值**: light / dark / black, 默认为light
 
 
 > light, 文字为黑色; dark/black, 文字为白色
@@ -35,7 +35,7 @@
 **1.NamedParams模式**
 ```
 {{<banner mode="light" style="#000" wrap-content=false >}}
-//内容
+    //内容
 {{/<banner>}}
 ```
 

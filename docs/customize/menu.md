@@ -11,6 +11,8 @@
 
 **代码示例**
 
+> 在 [`config.toml`](https://gohugo.io/getting-started/configuration/) 文件中设置
+
 ``` yaml
 [menu]
 [[menu.main]]
@@ -92,4 +94,3 @@ url = "/tags/"
 weight = 3
 ```
 
-> 在 [`config.toml`](https://gohugo.io/getting-started/configuration/) 文件中设置
