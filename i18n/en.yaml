@@ -76,3 +76,9 @@
 
 - id: seeAlso
   translation: see also
+
+- id: pagination-prev
+  translation: Prev
+
+- id: pagination-next
+  translation: Next

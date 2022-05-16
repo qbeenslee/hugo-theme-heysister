@@ -1,0 +1,32 @@
+<!-- TODO order mixed-->
+{{- if and .Site.Params.Plugins.pagination (ne .Params.hidePagination true) -}}
+{{- if or .Prev .Next -}}
+<div class="pagination-container flex flex-wrap">
+    {{- if .Prev -}}
+    <div class="pagination-item pagination-item--previous">
+        <a href="{{.Prev.Permalink}}">
+            <div class="pagination-item-label">
+                <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg">
+                    <polyline fill="none" vector-effect="non-scaling-stroke" points="8,2 2,8 8,14"></polyline>
+                </svg>
+                <span>{{T "pagination-prev"}}</span>
+            </div>
+            <div class="pagination-item-title">{{.Prev.Title}}</div>
+    </div>
+    {{- end -}}
+
+    {{- if.Next -}}
+    <div class="pagination-item pagination-item--next">
+        <a href="{{.Next.Permalink}}">
+            <div class="pagination-item-label">
+                <span>{{T "pagination-next"}}</span>
+                <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg">
+                    <polyline fill="none" vector-effect="non-scaling-stroke" points="2,2 8,8 2,14"></polyline>
+                </svg>
+            </div>
+            <div class="pagination-item-title">{{.Next.Title}}</div>
+    </div>
+    {{- end -}}
+</div>
+{{- end -}}
+{{- end -}}
