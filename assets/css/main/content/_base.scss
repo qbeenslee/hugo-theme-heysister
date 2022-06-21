@@ -40,10 +40,13 @@ a {
 
     &:hover {
         color: var(--link);
+        outline: 0;
     }
-
     &:visited {
         color: var(--link);
+    }
+    &:active {
+        outline: 0;
     }
 }
 
