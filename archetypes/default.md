@@ -10,6 +10,7 @@ hideComment: false
 hideTitle: false
 hideRelated: true
 hideDateTime: false
+hidePagination: false
 photoPopup: true
 math: false
 toc: true
