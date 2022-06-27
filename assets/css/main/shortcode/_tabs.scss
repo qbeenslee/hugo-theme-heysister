@@ -26,7 +26,6 @@
     .tab-content {
         order: 999;
         width: 100%;
-        border-top: 1px solid var(--border-light);
         padding: 1rem;
         display: none;
     }
@@ -37,6 +36,7 @@
         text-transform: uppercase;
         transition: color 0.1s ease-in-out;
         color: var(--text-tip);
+        border-bottom: 2px solid var(--border-light);
     }
 
     input[type="radio"]:checked + label {
