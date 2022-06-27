@@ -1,7 +1,8 @@
-.tabs-sc-wrap {
+.switch-tab-wrap {
+    font-family: ProximaNova,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid var(--border-clear);
+    // border: 1px solid var(--border-clear);
     // border-radius: 0.25rem;
     overflow: hidden;
     display: flex;
@@ -22,20 +23,28 @@
         cursor: pointer;
     }
 
-    .book-tabs-content {
+    .tab-content {
         order: 999;
         width: 100%;
-        border-top: 1px solid var(--border-clear);
+        border-top: 1px solid var(--border-light);
         padding: 1rem;
         display: none;
     }
 
-    input[type="radio"]:checked + label {
-        border-bottom: 3px solid $color_anchor;
-        color: $color_anchor;
+    input[type="radio"] + label {
+        font-size: 0.75rem;
+        line-height: 20px;
+        text-transform: uppercase;
+        transition: color 0.1s ease-in-out;
+        color: var(--text-tip);
     }
 
-    input[type="radio"]:checked + label + .book-tabs-content {
+    input[type="radio"]:checked + label {
+        border-bottom: 2px solid var(--link);
+        color: var(--text);
+    }
+
+    input[type="radio"]:checked + label + .tab-content {
         display: block;
     }
 
