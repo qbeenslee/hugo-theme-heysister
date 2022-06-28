@@ -6,7 +6,7 @@
     {{- .Scratch.Set "fragment-data-mode" (default "" (.Get "mode")) -}}
     {{- .Scratch.Set "fragment-type" (default "normal" (.Get "type")) -}}
     {{- .Scratch.Set "fragment-style" (default "background:#0000;" (.Get "style")) -}}
-    {{- .Scratch.Set "fragment-wrap-content" (default false (.Get "wrap-content")) -}}
+    {{- .Scratch.Set "fragment-wrap-content" (default false (.Get "wrap")) -}}
 {{- else if in $modes $index0Value -}}
     {{- .Scratch.Set "fragment-data-mode" (default "" (.Get 0)) -}}
     {{- .Scratch.Set "fragment-type" (default "normal" (.Get 1)) -}}

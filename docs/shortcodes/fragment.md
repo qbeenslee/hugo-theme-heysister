@@ -2,7 +2,7 @@
 
 ## 说明
 
-`fragment`shortcode是本主题排版的核心组件, 通过对内容的横向排版控制可增加更多的自由度
+`fragment` shortcode是本主题排版的核心组件, 通过对内容的横向排版控制可增加更多的自由度
 
 ## 配置
 
@@ -26,9 +26,9 @@
 **定义**: string, 使用html style设置控件的背景样式<br/>
 **取值**: text, 默认为空
 
-#### wrap-content
+#### wrap
 
-**定义**: boolean, 对各个部分的对齐方式是否为`wrap-content`<br/>
+**定义**: boolean, 对各个部分的对齐方式是否为`wrap`<br/>
 **取值**: true, 默认为false
 
 > true, **按照内容**大小对各个分割部分进行横向排版; <br/>false, 对各个分割部分横向**均等排版**
@@ -37,7 +37,7 @@
 
 **1.NamedParams模式**
 ```
-{{<fragment mode="light" type="normal" style="#000" wrap-content=false >}}
+{{<fragment mode="light" type="normal" style="#000" wrap=false >}}
     // 内容1
     <--->
     // 内容2
