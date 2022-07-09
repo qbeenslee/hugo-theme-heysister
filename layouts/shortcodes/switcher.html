@@ -16,8 +16,8 @@
         <div class="switcher-content markdown-inner">
             {{ if hasPrefix $header "#" }}
                 {{ if strings.HasSuffix (lower $header) "code" }}
-                    {{ $content := (replace $follower "\n" "<br/>") }}
-                    {{ printf "<pre class=\"chroma code-text\"><code>%s</code></pre>" $content | safeHTML }}
+                    {{ $content := (replace $follower "\n" "<br/>") | safeHTML }}
+                    {{ printf "<div class=\"highlight\"><pre class=\"chroma code-text\"><code>%s</code></pre></div>" $content | safeHTML }}
                 {{ else }}
                     {{- $follower | safeHTML | $.Page.RenderString -}}
                 {{ end }}
