@@ -1,15 +1,10 @@
 {{- $context := . -}}
-{{- $regPages := .Site.RegularPages -}}
-{{- $pages := $regPages | intersect (where $regPages "Params.hidden" "ne" true) -}}
+{{- $pages := where .Site.RegularPages "Type" "not in" (slice "page" "about") -}}
+{{- $pages := $pages | intersect (where $pages "Params.hidden" "ne" true) -}}
 
-{{- $sections := slice "hide" -}}
-{{- if .Site.Params.layout.ExcludeSections -}}
-    {{- range $item := (.Site.Params.layout.ExcludeSections) -}}
-        {{- $sections = $sections | append $item -}}
-    {{- end -}}
-{{- end -}}
+{{- $exSections := union (slice "hide" "hidden") .Site.Params.layout.ExcludeSections -}}
 
-{{- $pages := $pages | intersect (where $pages "Section" "not in" $sections) | intersect (where $pages "Title" "ne" "") -}}
+{{- $pages := $pages | intersect (where $pages "Section" "not in" $exSections) | intersect (where $pages "Title" "ne" "") -}}
 
 {{- $paginator := .Paginate $pages -}}
 

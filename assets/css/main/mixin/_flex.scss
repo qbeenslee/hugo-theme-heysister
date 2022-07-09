@@ -43,9 +43,11 @@
 }
 .flex-auto-fixed {
     @include flex(1, 1, auto);
+    max-width: 100%;
 }
 .flex-auto-wrap {
     @include flex(1, 0, 0%);
+    max-width: 100%;
 }
 
 @media screen and (max-width: $size_large_max) {
