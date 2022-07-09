@@ -1,0 +1,29 @@
+<div class="switcher-wrapper">
+    {{ $id := substr (delimit (shuffle (split (md5 "heysister") "" )) "") 0 5 }}
+    {{ $group := printf "switcher-%s" $id }}
+    {{ $allContent := trim .Inner "\n" }}
+    {{ range $index, $item := split $allContent "<--->" }}
+        {{ $paragraphs := split (trim $item "\n") "\n" }}
+        {{ $header := index $paragraphs 0 }}
+        {{ $follower := delimit (after 1 $paragraphs) "\n" }}
+        <input type="radio" class="toggle" name="{{ $group }}" id="{{ printf "%s-%d" $group $index }}" {{ if not $index }}checked="checked"{{ end }} />
+        <label for="{{ printf "%s-%d" $group $index }}">
+            {{ if hasPrefix $header "#" }}
+                {{ $itemTitle := substr $header 1 }}
+                {{ $itemTitle | safeHTML | $.Page.RenderString }}
+            {{ end }}
+        </label>
+        <div class="switcher-content markdown-inner">
+            {{ if hasPrefix $header "#" }}
+                {{ if strings.HasSuffix (lower $header) "code" }}
+                    {{ $content := (replace $follower "\n" "<br/>") }}
+                    {{ printf "<pre class=\"chroma code-text\"><code>%s</code></pre>" $content | safeHTML }}
+                {{ else }}
+                    {{- $follower | safeHTML | $.Page.RenderString -}}
+                {{ end }}
+            {{ else }}
+                {{- $item | $.Page.RenderString -}}
+            {{ end }}
+        </div>
+    {{ end }}
+</div>

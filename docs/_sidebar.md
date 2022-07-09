@@ -17,6 +17,6 @@
 - shortcodes
     - [banner](shortcodes/banner.md)
     - [fragment](shortcodes/fragment.md)
-    - [tab](shortcodes/tab.md)
+    - [switcher](shortcodes/switcher.md)
     - [map](shortcodes/map.md)
     - [friend](shortcodes/friend.md)

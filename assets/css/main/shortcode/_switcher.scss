@@ -1,4 +1,4 @@
-.switch-tab-wrap {
+.switcher-wrapper {
     font-family: ProximaNova,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -23,7 +23,7 @@
         cursor: pointer;
     }
 
-    .tab-content {
+    .switcher-content {
         order: 999;
         width: 100%;
         padding: 1rem;
@@ -45,7 +45,7 @@
         color: var(--text);
     }
 
-    input[type="radio"]:checked + label + .tab-content {
+    input[type="radio"]:checked + label + .switcher-content {
         display: block;
     }
 
