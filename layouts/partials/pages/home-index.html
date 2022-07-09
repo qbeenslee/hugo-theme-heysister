@@ -1,13 +1,10 @@
 {{- $context := . -}}
-{{- $pages := where .Site.RegularPages "Type" "not in" (slice "page" "about") -}}
+{{- $pages := where .Site.RegularPages "Type" "not in" (slice "bb" "page" "about") -}}
 {{- $pages := $pages | intersect (where $pages "Params.hidden" "ne" true) -}}
-
 {{- $exSections := union (slice "hide" "hidden") .Site.Params.layout.ExcludeSections -}}
-
 {{- $pages := $pages | intersect (where $pages "Section" "not in" $exSections) | intersect (where $pages "Title" "ne" "") -}}
 
 {{- $paginator := .Paginate $pages -}}
-
 {{- $listStyle :=.Site.Params.Layout.listStyle -}}
 {{- $listStyleName :=cond (and ( and (ne $listStyle "list") (ne $listStyle "list-thumbnail")) (ne $listStyle "card")) "list" .Site.Params.Layout.listStyle -}}
 

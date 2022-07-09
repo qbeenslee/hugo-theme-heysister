@@ -1,5 +1,5 @@
 name = "heysister"
-license = "MIT"
+license = "Mulan PSL v2"
 description = "Simple Hugo blogging theme"
 tags = [
   "blog",
