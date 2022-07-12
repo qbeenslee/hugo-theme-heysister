@@ -2,7 +2,7 @@
     {{ $id := substr (delimit (shuffle (split (md5 "heysister") "" )) "") 0 5 }}
     {{ $group := printf "switcher-%s" $id }}
     {{ $allContent := trim .Inner "\n" }}
-    {{ range $index, $item := split $allContent "<--->" }}
+    {{ range $index, $item := split $allContent "<--->" }} <!--- 存在错误处理内嵌shortcode分割错误的bug --->
         {{ $paragraphs := split (trim $item "\n") "\n" }}
         {{ $header := index $paragraphs 0 }}
         {{ $follower := delimit (after 1 $paragraphs) "\n" }}

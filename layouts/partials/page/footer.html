@@ -4,7 +4,8 @@
             <p>{{ .Site.Copyright | safeHTML }}</p>
         {{- else -}}
             {{ $currentYear := (now.Format "2006") }}
-            {{ $author := humanize .Params.author }}
+            {{ $author := partial "variable/author" . }}
+            {{ $author := humanize $author }}
             {{ $content := (printf "&copy;%s %s" $author $currentYear) }}
             <p>{{ $content | safeHTML }}</p>
         {{- end -}}
