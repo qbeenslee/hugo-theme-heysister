@@ -15,9 +15,12 @@
         </label>
         <div class="switcher-content markdown-inner">
             {{ if hasPrefix $header "#" }}
-                {{ if strings.HasSuffix (lower $header) "code" }}
-                    {{ $content := (replace $follower "\n" "<br/>") | safeHTML }}
-                    {{ printf "<div class=\"highlight\"><pre class=\"chroma code-text\"><code>%s</code></pre></div>" $content | safeHTML }}
+                {{ if or (strings.HasSuffix (lower $header) "code") (strings.HasSuffix $header (T "code")) }}
+                    {{ if hasPrefix $follower "```"}}
+                        {{- $follower | $.Page.RenderString -}}
+                    {{ else}}
+                        {{- printf "```\n%s\n```" $follower | safeHTML | $.Page.RenderString -}}
+                    {{end}}
                 {{ else }}
                     {{- $follower | safeHTML | $.Page.RenderString -}}
                 {{ end }}

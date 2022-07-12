@@ -82,3 +82,7 @@
 
 - id: pagination-next
   translation: Next
+
+- id: code
+  translation: code
+
