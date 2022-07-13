@@ -48,7 +48,7 @@ header {
     width: 100%;
     top: 0;
     padding: 10px 0;
-    font-size: 1rem;
+    font-size: .85rem;
     isolation: isolate;
 
     .nav-item {
@@ -124,20 +124,23 @@ header {
 
 .nav-opaque {
     border-bottom: 1px solid var(--block-light);
-    background-color: var(--block-white-gradual);
+    // background-color: var(--block-white-gradual);
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    transition: all .5s cubic-bezier(.4,0,0,1);
 
     .nav-with-shadow {
         text-shadow: none;
     }
 
     .nav-color-subject {
-        color: $color_black;
-        fill: $color_black;
+        color: var(--text);
+        fill: var(--text);
     }
 
     .nav-color-normal {
-        color: $color_gravel_approx;
-        fill: $color_gravel_approx;
+        color: var(--text-title);
+        fill: var(--text-title);
     }
 
     .nav-color-active {
