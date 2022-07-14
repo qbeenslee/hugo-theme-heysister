@@ -2,7 +2,7 @@
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: 2px;
+    margin-left: 1px;
     vertical-align: middle;
     border-top: 4px dashed;
     border-right: 4px solid transparent;
@@ -123,8 +123,7 @@ header {
 }
 
 .nav-opaque {
-    border-bottom: 1px solid var(--border-nav); //1px solid var(--block-light);
-
+    border-bottom: 1px solid var(--border-nav);
     // background-color: var(--block-white-gradual);
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
