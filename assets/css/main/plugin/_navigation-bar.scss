@@ -123,7 +123,8 @@ header {
 }
 
 .nav-opaque {
-    border-bottom: 1px solid var(--block-light);
+    border-bottom: 1px solid var(--border-nav); //1px solid var(--block-light);
+
     // background-color: var(--block-white-gradual);
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
