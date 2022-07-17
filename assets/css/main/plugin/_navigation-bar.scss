@@ -1,48 +1,3 @@
-.caret {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 1px;
-    vertical-align: middle;
-    border-top: 4px dashed;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 1100;
-
-    &:hover .dropdown-content {
-        display: block;
-    }
-}
-
-.dropbtn {
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: $color_alabaster_approx;
-    min-width: 7rem;
-    // @include box-shadow(0 8px 16px 0 $color_black_20);
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
-    a {
-        color: $color_gravel_approx;
-        padding: 0.75rem 1rem;
-        text-decoration: none;
-        display: block;
-
-        &:hover {
-            background-color: $color_seashell;
-        }
-    }
-}
-
 header {
     z-index: 1100; // do not change it
     width: 100%;
@@ -50,30 +5,41 @@ header {
     // padding: 10px 0;
     font-size: .85rem;
     isolation: isolate;
+}
 
-    .nav-item {
-        // -webkit-box-align: center;
-        // -ms-flex-align: center;
-        // align-items: center;
-        padding: 0 1rem;
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
+#navigation-bar {
+    @include justify-content(space-between);
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding: .5rem 1rem;
+
+
+    .nav-left,
+    .nav-middle,
+    .nav-right {
+        // margin-left: .5rem;
+        // margin-right: .5rem;
+
+        .nav-item {
+            // -webkit-box-align: center;
+            // -ms-flex-align: center;
+            // align-items: center;
+            padding: 0 .5rem;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
     }
 
-    .nav-left {
-        font-size: inherit;
-        display: inline;
-        // margin-left: 1rem;
-        @include flex(1, 1, 100%);
-
+    .nav-left{
+        @include flex(0, 0, 5rem);
         .logo {
             font-size: inherit;
             font: normal 1rem $font_kaushan_script, $font_helvetica_neue, $font_helvetica, $font_arial;
             text-transform: capitalize;
-            display: inline;
+            display: inline-block;
             vertical-align: middle;
-            padding: 0 5px;
+            // padding: 0 5px;
 
             > a {
                 font-size: inherit;
@@ -83,6 +49,15 @@ header {
             }
         }
     }
+
+
+    .nav-middle {
+        font-size: inherit;
+        display: inline;
+        // margin-left: 1rem;
+        @include flex(1, 1, auto);
+        padding-top: .2rem;
+    }
     .nav-right {
         font-size: inherit;
         display: inline;
@@ -90,7 +65,7 @@ header {
         box-sizing: border-box;
         white-space: nowrap;
         float: right;
-        @include flex(0, 1, 5rem);
+        @include flex(0, 0, 5rem);
     }
 
     @media screen and (max-width: $size_tiny_min) {
@@ -185,5 +160,51 @@ header {
 
     > #nav-bar > .nav-item > a:hover {
         color: $color_white;
+    }
+}
+
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 1px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1100;
+
+    &:hover .dropdown-content {
+        display: block;
+    }
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $color_alabaster_approx;
+    min-width: 7rem;
+    // @include box-shadow(0 8px 16px 0 $color_black_20);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    a {
+        color: $color_gravel_approx;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+            background-color: $color_seashell;
+        }
     }
 }
