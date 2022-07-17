@@ -44,17 +44,17 @@
 }
 
 header {
-    z-index: 1100;
+    z-index: 1100; // do not change it
     width: 100%;
     top: 0;
-    padding: 10px 0;
+    // padding: 10px 0;
     font-size: .85rem;
     isolation: isolate;
 
     .nav-item {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        // -webkit-box-align: center;
+        // -ms-flex-align: center;
+        // align-items: center;
         padding: 0 1rem;
         position: relative;
         display: inline-block;
@@ -64,7 +64,8 @@ header {
     .nav-left {
         font-size: inherit;
         display: inline;
-        margin-left: 1rem;
+        // margin-left: 1rem;
+        @include flex(1, 1, 100%);
 
         .logo {
             font-size: inherit;
@@ -85,10 +86,11 @@ header {
     .nav-right {
         font-size: inherit;
         display: inline;
-        margin-right: 1rem;
+        // margin-right: 1rem;
         box-sizing: border-box;
         white-space: nowrap;
         float: right;
+        @include flex(0, 1, 5rem);
     }
 
     @media screen and (max-width: $size_tiny_min) {

@@ -1,8 +1,8 @@
-<header id="header" class="auto_header unselectable {{if .Params.banner}} nav-trans{{else}} nav-opaque{{end}}" style="top: 0px; position: fixed; z-index: 1100;">
+<header id="header" class="flex auto_header unselectable {{if .Params.banner}} nav-trans{{else}} nav-opaque{{end}}" style="top: 0px; position: fixed; z-index: 1100;">
     {{- $current := . -}}
     {{- $cureent_url := .Permalink -}}
     <!--left side-->
-    <div class="nav-left">
+    <div class="nav-left horizontal-scroll">
         <nav>
             <div class="logo nav-item"><a class="nav-with-shadow nav-color-subject" href="/">{{ .Site.Title }}</a></div>
             {{ range .Site.Menus.main -}}
